@@ -14,7 +14,7 @@
                     <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리"style="width: 7.2%">
                     <br>
                     <div class="url__editable url__data-title" style="display: inline-block">
-                        <%= x.urlTitle %></a>
+                        <a href="http://<%= x.urlLink %>" target="_blank"><%= x.urlTitle %></a>
                     </div>
                     
                     <!-- 주소복사 링크 -->
@@ -53,7 +53,7 @@
                         <div class="url__hashtag">
                                 <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                                 <% x.tags.each do |t| %>
-                                     #<%= t.tagName %> 
+                                     <%= t.tagName %> 
                                 <% end %>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                     // 수정 중일 때는 urlLink 입력할 수 있도록 창 활성화 해주고,
                     url_content.find('.url__image-link').show();
                     // 주소복사 버튼을 숨겨준다.
-                    url_content.find('.mainpage_url_button').hide();
+                    url_content.find('.data_url_button').hide();
                     // 수정버튼을 숨겨준다 
                     url_content.find('.btn--modify').hide();
                     // 저장 버튼 보이기 : class이름 url__actions로 함 

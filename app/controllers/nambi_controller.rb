@@ -191,7 +191,12 @@ class NambiController < ApplicationController
         @tagMost= Url.joins(:tags).where(user_id: session["userId"]).group('tagName').order('count_id DESC').limit(2).count(:id)
     end
     
-    
+    #태그 클릭 활성화 창
+    def tagclick
+        tagclick = params[:tagclick]
+        @url = Url.joins(:tags).where(user_id: session["userId"], tags:{tagName: tagclick})
+        
+    end
     def write
         #세션 된 user_id를 입력창에서 input=hidden 으로 넘겨주니까 
         #수정 노노

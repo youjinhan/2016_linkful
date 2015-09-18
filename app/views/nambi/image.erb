@@ -17,12 +17,11 @@
     
                 <!-- 주소복사 링크 -->
                 <div class="mainpage_url_button">
-                    <p id="url_copy" hidden><%=x.urlLink %></p><button class="mainpage_url_button_css" onclick="clipboard.copy('<%=x.urlLink %>');">
-                    주소복사</button>
+                    <button class="mainpage_url_button_css" onclick="clipboard.copy('<%= x.urlLink %>');">주소복사</button>
                 </div>
             
                 <br>
-                <div class="url__editable url__image-link" id="openlink"style="inline-block; color:black" ><%= x.urlLink %></div>
+                <div class="url__editable url__image-link" style="display:none"><%= x.urlLink %></div>
                 <div class="url__editable url__image-memo"><%= x.memo %></div><!-- class 수정 --><br>
                 <div class="url__editable url__image-hashtag">
                     <div class="url__hashtag">
@@ -36,7 +35,7 @@
                 <!-- 자료 삭제+수정버튼 -->
                 <div id="button_div">
                     <!-- class이름+data-id 이름 바꾸지 마세요-->
-                	<a class="btn btn--modify" data-id="<%= x.id %>"><img src="/img/modifybutton.png" class="mainpage-modify-icon"></a>
+                	<a class="btn btn--modify" data-id="<%= x.id %>"  data-type="img"><img src="/img/modifybutton.png" class="mainpage-modify-icon"></a>
                 	
                 <!-- 자료 삭제버튼과 팝업창 -->
                     <a href="#delete_alarm_<%= x.id %>"><img src="/img/deletebutton.png" class="btn btn--icon"></a>
@@ -80,7 +79,7 @@
                     // is-modifying은 css적용을 위한 것, 그 효과를 없애준다.
                     url_content.removeClass('is-modifying');
                     //수정 후에는 주소복사 버튼을 나타내고,
-                    url_content.find('.data_url_button').show();
+                    url_content.find('.mainpage_url_button').show();
                     //urlLink 수정할 수 있는 창을 숨긴다.
                     url_content.find('.url__image-link').hide();
                     // 저장 버튼 숨기기
@@ -109,7 +108,7 @@
                     // 수정 중일 때는 urlLink 입력할 수 있도록 창 활성화 해주고,
                     url_content.find('.url__image-link').show();
                     // 주소복사 버튼을 숨겨준다.
-                    url_content.find('.data_url_button').hide();
+                    url_content.find('.mainpage_url_button').hide();
                     // 수정버튼을 숨겨준다 
                     url_content.find('.btn--modify').hide();
                     // 저장 버튼 보이기 : class이름 url__actions로 함 
@@ -121,7 +120,7 @@
                     //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
                     // is-modifying은 css적용을 위한 것
                     url_content.find('.url__image-link').attr('contenteditable', true); // 9월 10일 안누리
-                    url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
+                        //url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
                     url_content.find('.url__image-link').addClass('is-modifying'); // 9월 10일 안누리
                     url_content.find('.url__image-title').attr('contenteditable', true);
                     url_content.find('.url__image-title').addClass('is-modifying');

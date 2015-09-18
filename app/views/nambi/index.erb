@@ -1,8 +1,8 @@
 <body position="relative" overflow="auto" >
     
 <style type="text/css">
-    html, body { height:100%; width:100%; overflow: visible; 
-    style="  /* Safari 4-5, Chrome 1-9 */
+    html, body { height:100%; width:100%; overflow: hidden;  
+    style=  /* Safari 4-5, Chrome 1-9 */
               background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#d1e5f0));
               /* Safari 5.1, Chrome 10+ */
               background: -webkit-linear-gradient(top, #ffffff, #d1e5f0);
@@ -21,21 +21,28 @@
     
     
 <img class="index_logo" src="/img/logo.png">
-<div id="index_big_box"> 
-<div class="row index_left_box" id="index_left_box">
-    <div class="col-md-8 col-sm-12 col-xs-12 index_left_notebook">
-        <img class="index_image_notebook" src="/img/index_notebook.png">
-   </div>
+
+<!-- big box -->
+<div class="row" id="index_big_box"> 
+
    
-    <div class="col-md-4 col-sm-12 col-xs-12 index_left_login">
-        <img class="index_image_howtouse" id="index_image_howtouse_id_name" src="/img/index_howto_button.png">
-        <div class="index_left_slogan">
-            <img class="index_slogan" src="/img/slogan.png">
-            
-        <!-- <div class="index_left_slogan_01">Make your think</div><div class="index_left_slogan_02">Linkful !</div> 
-        <div class="index_left_slogan_03">최고의 인사이트를 위한 나만의 url저장소</div> -->
-        </div>
-        
+    <!-- left box -->
+    <div class="col-md-8 col-sm-12 col-xs-12 index_left_box" id="index_left_box">
+        <div class="index_left_notebook">
+            <img class="index_image_notebook" src="/img/index_notebook.png">
+       </div>
+    </div>  
+   <!-- left box end -->
+
+
+    <!-- middle box -->
+    <div class="col-md-2 col-sm-12 col-xs-12 index_middle_box" id="index_middle_box">
+        <div class="index_left_login">
+            <img class="index_image_howtouse" id="index_image_howtouse_id_name" src="/img/index_howto_button.png">
+            <div class="index_left_slogan">
+                <img class="index_slogan" src="/img/slogan.png">
+            </div>
+        </div>    
         <!-- 로그인창 --> 
         <div class="index-loginbox">
             <form  action="/nambi/login_process" method="POST">
@@ -53,25 +60,22 @@
                         <a href="/nambi/find_pw" class="index-findPW"><span class="index_button_font">비밀번호 찾기</span></a>
                 </div>        
             </form> 
-            <br><br><br><br>
+            
         </div>
         
-        <!-- END -->
+            
     </div>
+    <!-- middle box end -->
+    
+
+    <!-- right box -->
+    <div class="col-md-7 col-sm-12 col-xs-12 index_right_box">
+            <img class="index_right_box_image" src="/img/slide2.png">
+    </div>
+    <!-- right box end -->
     
 </div>
-
-
-<div class="index_right_box"><!-- Horizontal -->
-        <img class="index_right_box_image" src="/img/slide2.png">
-		<!-- <div><a href="#"><img src="/data/201106/IJ13091937541357/image-4.jpg" alt="" /></a></div>
-		<div><a href="#"><img src="/data/201106/IJ13091937541357/image-5.png" alt="" /></a></div>  
-		<p class="index_right_slogan">직관적이고 깔끔한 링크풀만의 스크랩 시스템</p>
-		<div><a href="#"><img class="index_right_back_button" src="/img/index_backtoindex_button.png"></a></div>
-		<div><a href="#"><img class="howtoimage_01" src="/img/slide2.png"></a></div> -->
-</div>
-
-
+<!-- big box end -->
 
 <!-- 로그인 팝업창 -->  
 <script>
@@ -87,7 +91,7 @@
     $('.index_image_howtouse').click(function() {
 
     $('#index_left_box').animate({
-        left: '-50%'
+        left: '-800px'
     }, 500, function() {
         $(this).css('left', '150%');
         $(this).appendTo('#index_big_box');
@@ -95,7 +99,7 @@
 
     $(this).next().animate({
         left: '50%'
-    }, 50);
+    }, 500);
 });
     
     
