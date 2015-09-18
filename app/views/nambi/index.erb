@@ -87,7 +87,7 @@
     
     
     
-    
+
     $('.index_image_howtouse').click(function() {
 
     $('#index_left_box').animate({
@@ -100,7 +100,31 @@
     $(this).next().animate({
         left: '50%'
     }, 500);
+    
+   
 });
+
+
+    $('.index_right_box_image').click(function() {
+
+    $('#index_middle_box').animate({
+        right: '800px'
+    
+    $('#index_right_box').animate({
+        right: '800px'    
+        
+        
+    }, 500, function() {
+        $(this).css('right', '150%');
+        $(this).appendTo('#index_big_box');
+    });
+
+    $(this).next().animate({
+        right: '50%'
+    }, 500);
+});
+
+
     
     
     

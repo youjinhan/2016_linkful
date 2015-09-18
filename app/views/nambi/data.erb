@@ -48,7 +48,7 @@
                     <div class="url__hashtag">
                             <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                             <% x.tags.each do |t| %>
-                                <span class="url__hashtag__each" data-id=" <%= t.id %> data-type="url" ><%=t.id%>  #<%= t.tagName %></span>
+                                <span class="url__hashtag__each" data-id="<%= t.id %>" data-type="url" >#<%= t.tagName %></span>
                             <% end %>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
           }
         }
         //태그 활성화 
-        $(".url__hashtag").click(function() {
+        $(".url__hashtag__each").click(function() {
          var id = $(this).data('id'); //this: save버튼 - sava버튼에 등록해둔 게시물 고유의 id 갖고오고 
          //수정할 url 전체 class 지정 
           var url_content;

@@ -120,7 +120,7 @@
                     //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
                     // is-modifying은 css적용을 위한 것
                     url_content.find('.url__image-link').attr('contenteditable', true); // 9월 10일 안누리
-                        //url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
+                    url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
                     url_content.find('.url__image-link').addClass('is-modifying'); // 9월 10일 안누리
                     url_content.find('.url__image-title').attr('contenteditable', true);
                     url_content.find('.url__image-title').addClass('is-modifying');
@@ -159,11 +159,26 @@
             // .val() : input에서만 쓸수 있고 
             // .text() : 수정된 글이써져있는걸 갖고와
             //우리가 수정해줄 거는 4개의 요소니까
-            var url_content = $('.caption[data-id="' + id + '"]');
-            var urlLink = url_content.find('.url__image-link').text(); // 9월 10일 안누리
-            var urlTitle = url_content.find('.url__image-title').text();
-            var memo = url_content.find('.url__image-memo').text();
-            var tagName = url_content.find('.url__image-hashtag').text();
+                url_content = $('.caption[data-id="' + id + '"]');
+                urlLink = url_content.find('.url__image-link').text(); // 9월 10일 안누리
+                urlTitle = url_content.find('.url__image-title').text();
+                memo = url_content.find('.url__image-memo').text();
+                tagName = url_content.find('.url__image-hashtag').text();
+            
+            
+            // .val() : input에서만 쓸수 있고 
+            // .text() : 수정된 글이써져있는걸 갖고와
+            //우리가 수정해줄 거는 4개의 요소니까
+                    
+            console.log({
+                    //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
+                    id: id,
+                    urlLink: urlLink,   // 9월 10일 안누리
+                    urlTitle: urlTitle,
+                    memo: memo
+                    //tagName: tagName
+                });
+            
             
             $.ajax({
                 type: "POST",		//요청방식

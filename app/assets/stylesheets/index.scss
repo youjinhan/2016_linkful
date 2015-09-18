@@ -5,7 +5,7 @@ body{
 
 .index_left_box{
     position: relative;
-    margin:50px 0px 0px 0px;
+    margin:50px -50px 0px 0px;
     padding:0px;
     
 }
@@ -15,7 +15,8 @@ body{
     width:125px;
     top:-50px;
     
-    margin: 0px 0px 0px 230px;
+    margin: 0px 0px 0px 210px;
+    
 }
 
 .index_left_login{
@@ -140,7 +141,7 @@ body{
 }
 
 .index_right_box{
-    margin: 40px 0px 0px 240px;
+    margin: 40px 0px 0px 200px;
     position:relative;
     display: inline-block;
     
@@ -159,7 +160,6 @@ body{
     float:left;
     position:relative;
     display: inline-block;
-    
-    margin:70px 0px 0px 20px;
-    padding:0px;
+    margin: 70px 0px 0px 80px;
+    padding: 0px;
 }
