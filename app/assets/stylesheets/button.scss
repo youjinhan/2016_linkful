@@ -21,6 +21,80 @@
     }
 }
 
+#button_div{
+    float:right;
+    padding:0px;
+    margin: 0px 10px 0px 0px;
+}
+
+#imgbutton_div{
+    float: left;
+    padding: 0px;
+    margin: 0px 10px 0px 0px;
+}
+
+.btn {
+    &.btn--save {
+        display: inline-block;
+        padding: 8px 12px;
+        text-align: center;
+        border: 1px solid #efefef;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+          background: #eeeeee;
+        }
+    }
+    &.btn--modify {
+        display: inline-block;
+        
+    }
+    &.btn--icon {
+        width: 20px;
+        height: 20px;
+        
+        cursor: pointer;
+        
+        padding: 0px;
+        margin: 0px 5px 0px 0px;
+    }
+}
+
+.mainpage_url_button{
+    position:relative;
+    display: inline-block;
+}
+.mainpage_url_button_css{
+    color:white;
+    background-color: #bbbbbb;
+    font-size:11px; 
+    border:0px; 
+    outline:0px;
+    margin: 14px 0px 16px 0px;
+    padding:2px 3px 2px 3px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mainpage-modify-icon{
+    width: 20px;
+        height: 20px;
+        
+        cursor: pointer;
+        
+        padding: 0px;
+        margin: 0px 5px 0px -215px;
+}
+.mainpage-delete-icon{
+    width: 20px;
+        height: 20px;
+        
+        cursor: pointer;
+        
+        padding: 0px;
+        margin: 0px 5px 0px 0px;
+}
+
 
 .data_url_button{
     position:relative;

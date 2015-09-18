@@ -98,77 +98,9 @@
         padding: 8px 20px;
         text-align: center;
     }
-
-/* 이미지 - 지혜 OR 소현 수정 부탁 */
-    .url__image-title {
-    position: relative;
-    display: inline-block;
-    width: 250px;
-        
-    font-size: 15px;
-    font-weight: bold;
-    color: #363636;
-    }
-    .url__image-link {
-    position: relative;
-    display: inline-block;
-    width: 250px;
-        
-    font-size: 15px;
-    font-weight: bold;
-    color: #363636;
-    }
-    
-    .url__image-memo {
-        position: relative;
-        display: block;
-        
-        padding: 0px;
-        margin: 2px 0px 15px 57px;
-        color: #363636;
-    }
-    .url__image-hashtag {
-        position: relative;
-        
-        width: 100%;
-        color: #363636;
-        padding: 0px;
-    }
-    
-    .url__image-hashtag_css{
-        padding: 1px 0px 1px 27px;
-        
-    }
     
 }
 
-
-
-.btn {
-    &.btn--save {
-        display: inline-block;
-        padding: 8px 12px;
-        text-align: center;
-        border: 1px solid #efefef;
-        border-radius: 5px;
-        cursor: pointer;
-        &:hover {
-          background: #eeeeee;
-        }
-    }
-    &.btn--modify {
-        
-    }
-    &.btn--icon {
-        width: 20px;
-        height: 20px;
-        
-        cursor: pointer;
-        
-        padding: 0px;
-        margin: 0px 5px 0px 0px;
-    }
-}
 
 .category_img{
     position:relative; 
@@ -192,8 +124,3 @@
     float:left;
 }
 
-#button_div{
-    float: left;
-    padding:0px;
-    margin: 0px 10px 0px 0px;
-}

@@ -193,7 +193,7 @@ class NambiController < ApplicationController
     
     #태그 클릭 활성화 창
     def tagclick
-        @ids = Tag.where(id: params[:id]).all
+        @ids = Tag.where(id: params[:id]).take
         
         #@ids = params[:id]
         render :json => {"data" => @ids}
