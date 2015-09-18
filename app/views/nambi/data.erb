@@ -142,44 +142,43 @@
               
           }
         }
+        
         //태그 활성화 
         $(".url__hashtag__each").click(function() {
          var id = $(this).data('id'); //this: save버튼 - sava버튼에 등록해둔 게시물 고유의 id 갖고오고 
          //수정할 url 전체 class 지정 
-          var url_content;
+          //var url_content;
           //변수 초기화시켜주고 
-          var tagclick = "";
+          //var tagclick;
          
          // .val() : input에서만 쓸수 있고 
          // .text() : 수정된 글이써져있는걸 갖고와
          //우리가 수정해줄 거는 4개의 요소니까
-         var url_content = $('.url[data-id="' + id + '"]');
-         var tagclick = url_content.find('.url__hashtag__each').text();
-        console.log({
+         //url_content = $('.url[data-id="' + id + '"]');
+         console.log({
                 //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
-                id: id,
-                tagclick: tagclick  
+                id: id
                 });         
 		 $.ajax({
 			 type: "POST",		//요청방식
 			 url: "/nambi/tagclick",	//요청URL
 			 data: {
 			     //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
-			     id: id,
-			     tagclick: tagclick
+			     id: id
 			     },
 			 dataType:"json", //응답데이타타입
-			 success: function(result) {	//정상응답일 경우
-			     alert('해시태그 활성 성공'); 
+			 success: function(data) {	//정상응답일 경우
+			     alert('해시태그 활성 성공');
+			     window.location="/nambi/tagclick";
 			 },
-			 error: function(result) {	//에러응답일 경우
+			 error: function(id) {	//에러응답일 경우
 			     alert("서버에 문제가 발생했습니다.");
 			     console.log(result);
 				 return false;
 			 }
 		 });
-		 
 	 });
+	 
         //수정버튼
         $('.btn--modify').click(function() {
           //timeline 고유 id를 갖고와야지

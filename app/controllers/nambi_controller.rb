@@ -193,8 +193,15 @@ class NambiController < ApplicationController
     
     #태그 클릭 활성화 창
     def tagclick
-        tagclick = params[:tagclick]
-        @url = Url.joins(:tags).where(user_id: session["userId"], tags:{tagName: tagclick})
+        @ids = Tag.where(id: params[:id]).all
+        
+        #@ids = params[:id]
+        render :json => {"data" => @ids}
+
+        #@tagclick=Tag.where(id: @ids).tagName
+
+        #@showyes = @tagclick+" 에 대한 검색결과입니다. "
+        #@url = Url.joins(:tags).where(user_id: session["userId"], tags:{tagName: @tagclick})
         
     end
     def write

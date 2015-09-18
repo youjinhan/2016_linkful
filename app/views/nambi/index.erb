@@ -60,17 +60,52 @@
                         <a href="/nambi/find_pw" class="index-findPW"><span class="index_button_font">비밀번호 찾기</span></a>
                 </div>        
             </form> 
-            
+        </div>
+    </div>
+    <!-- middle box end -->
+    
+    <div class="index_fake_box"></div>
+    
+    
+    <!-- middle box2 -->
+    <div class="col-md-2 col-sm-12 col-xs-12 index_middle_box" id="index_middle_box2">
+        <div class="index_left_login">
+            <img class="index_image_howtouse" id="index_image_howtouse_id_name" src="/img/index_howto_button.png">
+            <div class="index_left_slogan">
+                <img class="index_slogan" src="/img/slogan.png">
+            </div>
+        </div>    
+        <!-- 로그인창 --> 
+        <div class="index-loginbox">
+            <form  action="/nambi/login_process" method="POST">
+                <input type="text" class="userId" name="userId" placeholder="아이디를 입력하세요." class="blank" required><br>
+                <input type="password" class="userPw" name="userPw" placeholder="비밀번호를 입력하세요." class="blank" required><br>
+                <input type="submit" value="로그인" class="rogin_button">
+    
+    
+                <br>
+                <div class="index_left_login_find_password">
+                    <label class="index-checkbox" id="checkbox">
+                       	<input type="checkbox"> 아이디 저장
+                    </label>    
+                        <p class="dontyouhaveid">링크풀 계정이 없으세요?</p> <a href="/nambi/join" class="index-join"><span class="index_button_font">회원가입</span></a>
+                        <a href="/nambi/find_pw" class="index-findPW"><span class="index_button_font">비밀번호 찾기</span></a>
+                </div>        
+            </form> 
         </div>
         
             
     </div>
     <!-- middle box end -->
-    
+
+
 
     <!-- right box -->
     <div class="col-md-7 col-sm-12 col-xs-12 index_right_box">
-            <img class="index_right_box_image" src="/img/slide2.png">
+            <img class="index_right_back_button" src="/img/index_backtoindex_button.png">
+            <p>직관적이고 깔끔한 링크풀만의 스크랩 시스템</p>
+            <img class="index_right_back_button" src="/img/index_backtoindex_button.png">
+            <img class="index_right_back_button" src="/img/index_backtoindex_button.png">
     </div>
     <!-- right box end -->
     
@@ -90,39 +125,44 @@
 
     $('.index_image_howtouse').click(function() {
 
-    $('#index_left_box').animate({
-        left: '-800px'
-    }, 500, function() {
-        $(this).css('left', '150%');
-        $(this).appendTo('#index_big_box');
-    });
-
-    $(this).next().animate({
-        left: '50%'
-    }, 500);
+        $('#index_left_box').animate({
+            left: '-800px'
+        }, 300, function() {
+            $(this).css('left', '150%');
+            $(this).appendTo('#index_big_box');
+        });
     
-   
+            $(this).next().animate({
+                left: '50%'
+            }, 10);
+            
+            
+        $('#index_middle_box').animate({
+            left: '-800px'
+        }, 300, function() {
+            $(this).css('left', '150%');
+            $(this).appendTo('#index_big_box');
+        });
+    
+            $(this).next().animate({
+                left: '50%'
+            }, 10);
+            
+        $('.index_fake_box').animate({
+            left: '-800px'
+        }, 1, function() {
+            $(this).css('left', '150%');
+            $(this).appendTo('#index_big_box');
+        });
+    
+            $(this).next().animate({
+                left: '50%'
+            }, 1);    
+            
 });
 
 
-    $('.index_right_box_image').click(function() {
 
-    $('#index_middle_box').animate({
-        right: '800px'
-    
-    $('#index_right_box').animate({
-        right: '800px'    
-        
-        
-    }, 500, function() {
-        $(this).css('right', '150%');
-        $(this).appendTo('#index_big_box');
-    });
-
-    $(this).next().animate({
-        right: '50%'
-    }, 500);
-});
 
 
     
