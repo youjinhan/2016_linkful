@@ -1,0 +1,245 @@
+// bbox.scss
+// all div class described to box
+
+.contentBox {
+    padding: 57px 0px 30px 30px;
+    display: block;
+    overflow: auto;
+    margin: 0 auto 0 auto; /* Center content */
+    width: 80%; /* Sizing - any length : 800px */
+    float: left;
+    
+    /* 같은 위치에 정렬될 경우 &. 사용 */
+    &.contentBox--main {
+        margin-top: 23px;
+    }
+    &.contentBox--data {   
+    }
+    &.contentBox--image { 
+        margin-top: 23px;
+    }
+    .contentBox__url-list {
+        width: 74%;
+        float: left;
+        padding: 0 15px 0 0;
+    }
+    .contentBox__image-list {
+        float: left;
+        width: 20%;
+        .contentBox__image {
+            display: inline-block;
+            width: 225px;
+            height: 225px;
+        
+            padding: 2px 2px 0px 2px;
+            margin: 5px;
+            
+            img {
+                width: 100%;
+            }
+        }
+        .contentBox__overay{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 25px;
+            color: white;
+            width: 225px;
+            height: 225px;
+        }
+        &:hover {
+        }
+    }
+    .contentBox__imageOnly-list {
+    }
+}
+
+
+.loginbox {
+    font-size: 20px;
+    margin: 0 auto;
+    padding:10px;
+    width: 325px;
+    display: block;
+    text-align: center;
+    border: none;
+    box-shadow: 1px 1px 5px #616161;
+}
+
+.loginbox__typeA{
+    font-size: 20px;
+    margin: 30px 0px 0px 0px;
+    padding: 10px;
+    width:325px;
+    display:block;
+    text-align: center;
+    border: none;
+    box-shadow: 1px 1px 5px #616161;
+    }
+
+
+.checkbox {
+    margin: 0px;
+    font-weight: bold;
+    color: #363636;
+}
+
+
+.navBox {
+    .navBox__info {
+        float: left;
+        padding: 10px 15px;
+        .navBox__info__logo {
+            float: left;
+            margin-right: 20px;
+            img {
+                width: 125px;
+            }
+        }
+        .navBox__info__url-list {
+            float: left;
+            display: block;
+            padding: 12px 0;
+            font-size: 13px;
+        }
+    }
+    .navBox__insight {
+        float: right;
+        display: inline-block;
+        padding: 16px 0;
+        margin-right: 20px;
+        .navBox__insight ul {
+            list-style: none;
+            display: block;
+        }
+        .navBox__insight__image-list {
+            float: left;
+            display: block;
+            /* 활성화 버튼 어떻게 만들죠..? 슬프당... */
+            .c-anchor {
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 32px;
+                padding: 0 4px;
+            }
+        } 
+        .navBox__insight__text {
+            display: inline-block;
+        }
+    }
+    .navBox__search {
+        float: right;
+        width: 240px;
+        padding: 12px 0;
+        .c-form {
+            .c-form-search {
+                height: 36px;
+                display: inline-block;
+                width: 175px;
+                color: #7d7e7f;
+                border: none;
+                border-bottom: 1px solid #479fff;
+                margin-right: 3px;
+            }
+            .c-form-submit {
+                border: none;
+                background: none;
+                width: 36px;
+                height: 36px;
+                
+                vertical-align: middle;
+                padding: 0;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .navBox__auth {
+        float: right;
+        padding: 22px 15px;
+        margin-left: 10px;
+        .navBox__auth__buttons {
+            .c-username {
+                margin-right: 20px;
+            }
+            .c-link {
+                font-weight: 700;
+            }
+        }    
+    }
+}
+
+.dic-icon { // c -> child
+     position:relative;
+     display: inline-block;
+     float: right;
+     margin: 15px 50px 0px 0px;
+     vertical-align: middle;
+    img {
+     width: 36px;
+     
+    }
+}
+
+.navBox__insight__image-list ul, .navBox__insight__image-list ul li, .navBox__insight__image-list ul li a{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.navBox__insight__image-list{
+    list-style: none;
+    display: block;
+}
+.navBox__insight__image-list ul:after{
+    content:'';
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+.navBox__insight__image-list ul li{
+    float: left;
+    display: block;
+    padding: 0;
+}
+.navBox__insight__image-list ul li a{
+        display: block;
+        position: relative;
+        text-decoration: none;
+        transition: color .25s;
+        -webkit-transition: color .25s;
+        -moz-transition: color .25s;
+        -o-transition: color .25s;
+}
+.navBox__insight__image-list ul li a:before{
+    content:'';
+    display:absolute;
+    transition: width .25s;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -o-transition: color .25s;
+}
+.navBox__insight__image-list ul li a:hover{
+        color: #479fff; /* 마우스 오버했을 때 변경되는 값 */
+}
+.navBox__insight__image-list ul li a:hover:before{
+        width:100%;
+}
+.navBox__insight__image-list ul li.active a{
+    color:#FC8689;
+}
+.navBox__insight__image-list ul li.active a:before{
+    width:100%;
+}
+
+#mainpage .c-anchor1, #data .c-anchor2, #bookmark .c-anchor3, #image .c-anchor4,{
+    color:#479fff;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 32px;
+    padding: 0 4px;
+}

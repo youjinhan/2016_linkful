@@ -1,0 +1,20 @@
+<%= render :partial => "nambi/partials/header_1" %>
+
+<div class="pagedown">
+    <center>
+    <br>
+        <h1  class="logtitle">비밀번호를 잊어버리셨나요?</h1>
+
+        <form action="#" method="POST"> <!-- 비밀번호 작동시키기 action값 넣기! -->
+            <input type="text" class="loginbox__typeA" name="userId" placeholder="이메일을 입력하세요" required><br>
+            <input type="submit" class="login_sumit_button login_sumit_button_css" value="비밀번호 재설정 하기" link_to '/nambi/reset_pw_instruction'> 
+        </form>
+
+        <br>
+        <a href="/nambi/login" class="logfont-blue">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/nambi/join" class="logfont-blue">회원가입</a>
+
+    </center>
+    </div>
+
+<%= render :partial => "nambi/partials/footer" %>

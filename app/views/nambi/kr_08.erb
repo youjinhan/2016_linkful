@@ -1,0 +1,31 @@
+
+<%= render :partial => "nambi/partials/header" %>
+<div id="kr_08">
+    <div id="insight">
+        <%= render :partial => "nambi/partials/dic" %>
+    <br>
+                
+                <div class="insight-Hashbox">
+                    <div id="tagall">
+                    <!--여기에 버튼별 결과출력물이 뜨도록 --> 
+                    <!-- 8. ㅇ으로 시작하는거: 세션됨--> 
+                    <% @findkr08.each do |x| %>
+                        <% tagpick = x.tags.where("tagName >= ? and tagName < ?", "아", "자") %>
+                        <% tagpick.each do |t| %>
+                            <!-- 해당되는게 없으면 배열에 집어넣는다 --중복 필터링 -->  
+                            <% unless @origin.include?(t.tagName) %>
+                                <% @origin << t.tagName  %>
+                            <% end %>  
+                        <% end %>
+                    <% end %>
+                    <!-- 중복된 값이 없는 배열 출력 -->
+                    <% @origin.each do |t| %>
+                        <%= t %> 
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%= render :partial => "nambi/partials/footer" %>
+
+

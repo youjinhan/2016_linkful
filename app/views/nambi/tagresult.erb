@@ -1,0 +1,350 @@
+<%= render :partial => "nambi/partials/header" %>
+<br><br><br>
+<!-- 해당 태그가 존재하지 않을때 -->
+<% if @showno %>
+    <center>
+    <div class="showNo">
+        <%=@showno %>
+    </div>
+    </center>
+<%end%>
+
+<div class="contentBox contentBox--tagresult"> <!-- 자료&북마크 출력창 -->
+    <!-- 출력 timeline -->
+    <br><br>
+    <!-- 해당 태그가 존재 할 때 -->
+    <% if @url %>
+        <center>
+        <div class="showYes">
+            <%=@showyes %>
+        </div>
+        </center>
+    
+    <% @url %>
+    <div class="contentBox__url-list">
+        <% @url.reverse_each do |x| %>
+            <% if x.category != 3 %>
+                <!-- 게시글에 대한 class 지정 url -->
+                <!-- class이름 절대 바꾸지마세요 -->
+                <div class="url" data-id="<%= x.id %>">
+                    <!-- 각각의 게시글에 대한 pk를 줘야함 -->
+                    <!-- 상단에 카테고리 IMG 표시-->
+                    <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리"style="width: 6.3%">
+                    <br>
+                    <div class="url__editable url__data-title" style="display: inline-block">
+                        <a href="http://<%= x.urlLink %>" target="_blank"><%= x.urlTitle %></a>
+                    </div>
+                    
+                    <!-- 주소복사 링크 -->
+                    <div class="data_url_button">
+                        <button class="data_url_button_css" onclick="clipboard.copy('<%= x.urlLink %>');" > 
+                        주소복사
+                        </button>
+                    </div>
+                    
+                    <!-- 자료 삭제+수정버튼 -->
+                    <div id="button_div">
+                        <!-- class이름+data-id 이름 바꾸지 마세요-->
+                       <a class="btn btn--modify" data-id="<%= x.id %>" data-type="url">
+                           <img src="/img/modifybutton.png" class="btn btn--icon">
+                       </a>
+                       
+                        <!-- 자료 삭제버튼과 팝업창 -->
+                        <a href="#delete_alarm_<%= x.id %>">
+                            <img src="/img/deletebutton.png" class="btn btn--icon">
+                        </a>
+                    </div>
+                
+                    <div id="delete_alarm_<%= x.id %>" class="delete-overlay">
+                        <div class="delete-alarm">
+                            이 게시물을 삭제하시겠습니까?
+                            <a class="delete_alarm_okay" href="/nambi/delete/<%= x.id %>">확인</a>
+                            <a class="delete_alarm_cancel" href="/nambi/tagresult">취소</a>
+                        </div>
+                    </div>
+                    <!--자료 삭제버튼과 팝업창 END--> <br>
+                    
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                    <div class="url__editable url__data-link" style="display: none;"><%= x.urlLink %></div>
+                    <div class="url__editable url__data-memo"><%= x.memo %></div>
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                    <div class="url__editable url__data-hashtag">
+                        <div class="url__hashtag">
+                                <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
+                                <% x.tags.each do |t| %>
+                                     #<%= t.tagName %>
+                                <% end %>
+                            </div>
+                    </div>
+                    
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                    <!-- pk 날리는 방법 1) input hidden 2) data-id="pk"-->
+                    <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
+                    <div class="url__actions">
+                        <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">SAVE</a>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+        
+    </div>
+    <div class="contentBox__image-list">
+        <% @url.reverse_each do |x| %>
+            <% if x.category == 3 %>
+        <% if(x.category == 3) %>
+        
+        <div class="caption" data-id="<%= x.id %>">
+            <img class="contentBox__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
+            <div class="caption__overlay">
+        <% end %>
+                <div class="url__editable url__image-title" style="color:black; font-weight:bold;"><%= x.urlTitle %></div>
+                      
+                <!-- 주소복사 링크 -->
+                <div class="mainpage_url_button">
+                    <button class="mainpage_url_button_css" onclick="clipboard.copy('<%= x.urlLink %>');">주소복사</button>
+                </div>
+            
+                <br>
+                <div class="url__editable url__image-link" style="display:none" ><%= x.urlLink %></div>
+                <div class="url__editable url__image-memo"><%= x.memo %></div><!-- class 수정 --><br>
+                <div class="url__editable url__image-hashtag">
+                    <div class="url__hashtag">
+                        <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
+                        <% x.tags.each do |t| %>
+                             #<%= t.tagName %> 
+                        <% end %>
+                    </div>
+                </div><!-- class 수정 --><br>
+
+                <!-- 자료 삭제+수정버튼 -->
+                <div id="button_div">
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                   <a class="btn btn--modify" data-id="<%= x.id %>" data-type="img">
+                       <img src="/img/modifybutton.png" class="mainpage-modify-icon"></a>
+                   
+                    <!-- 자료 삭제버튼과 팝업창 -->
+                    <a href="#delete_alarm_<%= x.id %>" class="btn" data-id="<%= x.id %>">
+                        <img src="/img/deletebutton.png" class="btn btn--icon"></a>
+                </div>
+        
+                <div id="delete_alarm_<%= x.id %>" class="delete-overlay">
+                    <div class="delete-alarm">
+                        이 게시물을 삭제하시겠습니까?
+                        <a class="delete_alarm_okay" href="/nambi/delete/<%= x.id %>">확인</a>
+                        <a class="delete_alarm_cancel" href="/nambi/tagresult/">취소</a>
+                    </div>
+                </div>
+                
+                <!-- 자료 삭제버튼과 팝업창 END --><br>
+            </div>
+        </div>
+            <% end %>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+</body>
+
+
+<!-- 위치 옮기지마세요 -->
+<script type="text/javascript">
+    $(function(){
+         //수정버튼 누르면 출력창에서 커서 놓이게 --> 수정 활성화
+        function toggleUrlEditable(id, type) {
+            var url_content;
+            if(type == 'url') {
+                url_content = $('.url[data-id="' + id + '"]');
+                
+                if(url_content.hasClass('is-modifying')) { 
+                    // 수정 중일 때 modify 버튼을 누르면 여기로 들어옴
+                    // 수정이 끝났거나 다시 버튼을 눌렀을 때
+                    
+                    // is-modifying은 css적용을 위한 것, 그 효과를 없애준다.
+                    url_content.removeClass('is-modifying');
+                    //수정 후에는 주소복사 버튼을 나타내고,
+                    url_content.find('.data_url_button').show();
+                    //urlLink 수정할 수 있는 창을 숨긴다.
+                    url_content.find('.url__data-link').hide();
+                    // 저장 버튼 숨기기
+                    url_content.find('.url__actions').hide();
+                    
+                    //수정하는 3개의 요소들을 각각 다 비활성화 시켜줘야해 
+                    // 1. 수정가능한 텍스트들을 contenteditable -> false 상태로 바꿔준다
+                    // 2. is-modifying 클래스를 제거
+                    url_content.find('.url__data-link').attr('contenteditable', false); // 9월 10일 안누리
+                    url_content.find('.url__data-link').removeClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__data-title').attr('contenteditable', false);
+                    url_content.find('.url__data-title').removeClass('is-modifying');
+                    url_content.find('.url__data-memo').attr('contenteditable', false);
+                    url_content.find('.url__data-memo').removeClass('is-modifying');
+                    url_content.find('.url__data-hashtag').attr('contenteditable', false);
+                    url_content.find('.url__data-hashtag').removeClass('is-modifying');
+                    
+                    // 수정버튼을 다시 보여줘야지 (원상복귀)
+                    $('.btn--modify[data-id=' + id + ']').show();
+                    
+                } else { 
+                    // 수정중이 아닐 때 modify버튼 누르면 여기로 옴
+                    // 수정 하려고 할 때 --> 수정버튼을 첫번째로 눌렀을 때
+                    // 수정할 수 있는 CSS를 적용시켜주고,
+                    url_content.addClass('is-modifying');
+                    // 수정 중일 때는 urlLink 입력할 수 있도록 창 활성화 해주고,
+                    url_content.find('.url__data-link').show();
+                    // 주소복사 버튼을 숨겨준다.
+                    url_content.find('.data_url_button').hide();
+                    // 수정버튼을 숨겨준다 
+                    url_content.find('.btn--modify').hide();
+                    // 저장 버튼 보이기 : class이름 url__actions로 함 
+                    url_content.find('.url__actions').show();
+                
+                
+                    //수정하는 3개의 요소들을 각각 다 활성화 시켜줘야해 
+                    //1. 수정가능한 텍스트들을 contenteditable -> true
+                    //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
+                    // is-modifying은 css적용을 위한 것
+                    url_content.find('.url__data-link').attr('contenteditable', true); // 9월 10일 안누리
+                    //url_content.find('.url__data-link').attr('style', 'color : black'); // 9월 10일 안누리
+                    url_content.find('.url__data-link').addClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__data-title').attr('contenteditable', true);
+                    url_content.find('.url__data-title').addClass('is-modifying');
+                    url_content.find('.url__data-memo').attr('contenteditable', true);
+                    url_content.find('.url__data-memo').addClass('is-modifying');
+                    url_content.find('.url__data-hashtag').attr('contenteditable', true);
+                    url_content.find('.url__data-hashtag').addClass('is-modifying');
+                }
+            } else if(type == 'img') {
+                url_content = $('.caption[data-id="' + id + '"]');
+                
+                if(url_content.hasClass('is-modifying')) { 
+                    // 수정 중일 때 modify 버튼을 누르면 여기로 들어옴
+                    // 수정이 끝났거나 다시 버튼을 눌렀을 때
+                    
+                    // is-modifying은 css적용을 위한 것, 그 효과를 없애준다.
+                    url_content.removeClass('is-modifying');
+                    //수정 후에는 주소복사 버튼을 나타내고,
+                    url_content.find('.mainpage_url_button').show(); // .data_url_button 이었음 소현
+                    //urlLink 수정할 수 있는 창을 숨긴다.
+                    url_content.find('.url__image-link').hide();
+                    // 저장 버튼 숨기기
+                    url_content.find('.url__actions').hide();
+                    
+                    //수정하는 3개의 요소들을 각각 다 비활성화 시켜줘야해 
+                    // 1. 수정가능한 텍스트들을 contenteditable -> false 상태로 바꿔준다
+                    // 2. is-modifying 클래스를 제거
+                    url_content.find('.url__image-link').attr('contenteditable', false); // 9월 10일 안누리
+                    url_content.find('.url__image-link').removeClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__image-title').attr('contenteditable', false);
+                    url_content.find('.url__image-title').removeClass('is-modifying');
+                    url_content.find('.url__image-memo').attr('contenteditable', false);
+                    url_content.find('.url__image-memo').removeClass('is-modifying');
+                    url_content.find('.url__image-hashtag').attr('contenteditable', false);
+                    url_content.find('.url__image-hashtag').removeClass('is-modifying');
+                    
+                    // 수정버튼을 다시 보여줘야지 (원상복귀)
+                    $('.btn--modify[data-id=' + id + ']').show();
+                    
+                } else { 
+                    // 수정중이 아닐 때 modify버튼 누르면 여기로 옴
+                    // 수정 하려고 할 때 --> 수정버튼을 첫번째로 눌렀을 때
+                    // 수정할 수 있는 CSS를 적용시켜주고,
+                    url_content.addClass('is-modifying');
+                    // 수정 중일 때는 urlLink 입력할 수 있도록 창 활성화 해주고,
+                    url_content.find('.url__image-link').show();
+                    // 주소복사 버튼을 숨겨준다.
+                    url_content.find('.data_url_button').hide();
+                    // 수정버튼을 숨겨준다 
+                    url_content.find('.btn--modify').hide();
+                    // 저장 버튼 보이기 : class이름 url__actions로 함 
+                    url_content.find('.url__actions').show();
+                
+                
+                    //수정하는 3개의 요소들을 각각 다 활성화 시켜줘야해 
+                    //1. 수정가능한 텍스트들을 contenteditable -> true
+                    //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
+                    // is-modifying은 css적용을 위한 것
+                    url_content.find('.url__image-link').attr('contenteditable', true); // 9월 10일 안누리
+                    url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
+                    url_content.find('.url__image-link').addClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__image-title').attr('contenteditable', true);
+                    url_content.find('.url__image-title').addClass('is-modifying');
+                    url_content.find('.url__image-memo').attr('contenteditable', true);
+                    url_content.find('.url__image-memo').addClass('is-modifying');
+                    url_content.find('.url__image-hashtag').attr('contenteditable', true);
+                    url_content.find('.url__image-hashtag').addClass('is-modifying');
+                }
+            }
+        }
+        
+        //수정버튼
+        $('.btn--modify').click(function() {
+          //alert('hi');
+          //timeline 고유 id를 갖고와야지
+          var id = $(this).data('id');
+          var type = $(this).data('type');
+          // 수정활성화 / 비활성화 동시에 (if(수정버튼 두번째 눌리면)else(수정처음시작했을때-처음 수정버튼 눌렀을때) )
+          toggleUrlEditable(id, type); 
+        });
+        
+        //수정 활성화 되었을때 밑에 동적으로 뜨는 save버튼 
+        //수정완료버튼 - save버튼 
+        $(".btn--save").click(function() {
+            var id = $(this).data('id'); //this: save버튼 - sava버튼에 등록해둔 게시물 고유의 id 갖고오고 
+            var type = $(this).data('type');
+            //수정할 url 전체 class 지정 
+            var url_content;
+            //변수 초기화시켜주고 
+            var urlTitle = urlLink = memo = tagName = "";
+            if(type == 'url') {
+                url_content = $('.url[data-id="' + id + '"]');
+                urlLink = url_content.find('.url__data-link').text(); // 9월 10일 안누리
+                urlTitle = url_content.find('.url__data-title').text();
+                memo = url_content.find('.url__data-memo').text();
+                tagName = url_content.find('.url__data-hashtag').text();
+            } else if(type == 'img') {
+                url_content = $('.caption[data-id="' + id + '"]');
+                urlLink = url_content.find('.url__image-link').text(); // 9월 10일 안누리
+                urlTitle = url_content.find('.url__image-title').text();
+                memo = url_content.find('.url__image-memo').text();
+                tagName = url_content.find('.url__image-hashtag').text();
+            }
+            
+            // .val() : input에서만 쓸수 있고 
+            // .text() : 수정된 글이써져있는걸 갖고와
+            //우리가 수정해줄 거는 4개의 요소니까
+                    
+            console.log({
+                    //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
+                    id: id,
+                    urlLink: urlLink,   // 9월 10일 안누리
+                    urlTitle: urlTitle,
+                    memo: memo
+                    //tagName: tagName
+                });
+            $.ajax({
+                type: "POST",		//요청방식
+                url: "/nambi/update",	//요청URL
+                data: {
+                    id: id,
+                    urlLink: urlLink,   // 9월 10일 안누리
+                    urlTitle: urlTitle,
+                    memo: memo
+                    //tagName: tagName
+                },
+                dataType:"json", //응답데이타타입
+                    success: function(result) {	//정상응답일 경우
+                    alert('글을 수정했습니다.'); 
+                    toggleUrlEditable(id, type); //수정성공 -> 수정모드 비활성화
+                    return false;
+                },
+                error: function(result) {	//에러응답일 경우
+                    alert("서버에 문제가 발생했습니다.");
+                    console.log(result);
+                return false;
+            }
+        });
+	});
+});
+    
+</script>
+<%= render :partial => "nambi/partials/footer" %>

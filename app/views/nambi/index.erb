@@ -1,0 +1,115 @@
+<body position="relative" overflow="auto" >
+    
+<style type="text/css">
+    html, body { height:100%; width:100%; overflow: visible; 
+    style="  /* Safari 4-5, Chrome 1-9 */
+              background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#d1e5f0));
+              /* Safari 5.1, Chrome 10+ */
+              background: -webkit-linear-gradient(top, #ffffff, #d1e5f0);
+              /* Firefox 3.6+ */
+              background: -moz-linear-gradient(top, #ffffff,#d1e5f0);
+              /* IE 10 */
+              background: -ms-linear-gradient(top,#ffffff, #d1e5f0);
+              /* Opera 11.10+ */
+              background: -o-linear-gradient(top, #ffffff, #d1e5f0);}
+</style>
+    
+<!-- 부트스트랩 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    
+<img class="index_logo" src="/img/logo.png">
+<div id="index_big_box"> 
+<div class="row index_left_box" id="index_left_box">
+    <div class="col-md-8 col-sm-12 col-xs-12 index_left_notebook">
+        <img class="index_image_notebook" src="/img/index_notebook.png">
+   </div>
+   
+    <div class="col-md-4 col-sm-12 col-xs-12 index_left_login">
+        <img class="index_image_howtouse" id="index_image_howtouse_id_name" src="/img/index_howto_button.png">
+        <div class="index_left_slogan">
+            <img class="index_slogan" src="/img/slogan.png">
+            
+        <!-- <div class="index_left_slogan_01">Make your think</div><div class="index_left_slogan_02">Linkful !</div> 
+        <div class="index_left_slogan_03">최고의 인사이트를 위한 나만의 url저장소</div> -->
+        </div>
+        
+        <!-- 로그인창 --> 
+        <div class="index-loginbox">
+            <form  action="/nambi/login_process" method="POST">
+                <input type="text" class="userId" name="userId" placeholder="아이디를 입력하세요." class="blank" required><br>
+                <input type="password" class="userPw" name="userPw" placeholder="비밀번호를 입력하세요." class="blank" required><br>
+                <input type="submit" value="로그인" class="rogin_button">
+    
+    
+                <br>
+                <div class="index_left_login_find_password">
+                    <label class="index-checkbox" id="checkbox">
+                       	<input type="checkbox"> 아이디 저장
+                    </label>    
+                        <p class="dontyouhaveid">링크풀 계정이 없으세요?</p> <a href="/nambi/join" class="index-join"><span class="index_button_font">회원가입</span></a>
+                        <a href="/nambi/find_pw" class="index-findPW"><span class="index_button_font">비밀번호 찾기</span></a>
+                </div>        
+            </form> 
+            <br><br><br><br>
+        </div>
+        
+        <!-- END -->
+    </div>
+    
+</div>
+
+
+<div class="index_right_box"><!-- Horizontal -->
+        <img class="index_right_box_image" src="/img/slide2.png">
+		<!-- <div><a href="#"><img src="/data/201106/IJ13091937541357/image-4.jpg" alt="" /></a></div>
+		<div><a href="#"><img src="/data/201106/IJ13091937541357/image-5.png" alt="" /></a></div>  
+		<p class="index_right_slogan">직관적이고 깔끔한 링크풀만의 스크랩 시스템</p>
+		<div><a href="#"><img class="index_right_back_button" src="/img/index_backtoindex_button.png"></a></div>
+		<div><a href="#"><img class="howtoimage_01" src="/img/slide2.png"></a></div> -->
+</div>
+
+
+
+<!-- 로그인 팝업창 -->  
+<script>
+    <% unless flash[:alert].nil? %>
+    $(document).ready(function(){
+        alert("<%=flash[:alert]%>");
+    });
+    <% end %>
+    
+    
+    
+    
+    $('.index_image_howtouse').click(function() {
+
+    $('#index_left_box').animate({
+        left: '-50%'
+    }, 500, function() {
+        $(this).css('left', '150%');
+        $(this).appendTo('#index_big_box');
+    });
+
+    $(this).next().animate({
+        left: '50%'
+    }, 50);
+});
+    
+    
+    
+</script>
+<!-- END -->  
+<%= render :partial => "nambi/partials/footer" %>
+
+
+
+
+
+
+
+
+
+</body>

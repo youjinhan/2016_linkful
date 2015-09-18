@@ -1,0 +1,65 @@
+// button.scss
+// button styles
+
+.button {
+    &:before,
+    &:after {
+      display: table;
+      content: " ";
+    }
+    &:after {
+      clear: both;
+    }
+    &.button--submit {
+      width: 100%;
+      padding: 5px 0;
+      color: white;
+      background: #479fff;
+      border: none;
+      font-weight: bold;
+      text-align: center;
+    }
+}
+
+
+.data_url_button{
+    position:relative;
+    display: inline-block;
+}
+
+
+.data_url_button_css {
+    color:white;
+    background-color: #bbbbbb;
+    font-size:11px; 
+    border:0px; 
+    outline:0px;
+
+    margin: 0px 0px 5px 10px;
+    padding:2px 3px 2px 3px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.login_sumit_button{
+    position:relative;
+    display:block;
+}
+
+.login_sumit_button_css{
+    width: 325px;
+    height: 50px;
+    margin: 10px 0px 0px 0px;
+    /* border:3px solid white; */
+    color: white;
+    background-color: #19aac4;
+    box-shadow: 1px 1px 5px #616161;
+    font-size: 20pt;
+    
+    &.login_sumit_button_css:hover{
+    background-color: white;
+    color: #19aac4;;
+    /* border:3px solid #19aac4;; */
+    }
+}

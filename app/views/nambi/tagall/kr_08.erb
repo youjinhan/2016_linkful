@@ -1,0 +1,7 @@
+<!-- 8. ㅇ으로 시작하는거: 세션됨--> 
+    <% @findkr08.each do |x| %>
+            <% tagpick = x.tags.where("tagName >= ? and tagName < ?", "아", "자") %>
+            <% tagpick.each do |t| %>
+                    <%= t.tagName %>  
+            <% end %>
+    <% end %>

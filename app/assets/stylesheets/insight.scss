@@ -1,0 +1,233 @@
+.insight-body{
+    overflow:auto;
+    display: block;
+    margin: 70px auto 0 142px; /* Center content */
+}
+
+.insight-body__main{
+    width:80%;
+    height:auto;
+    float:left;
+}
+
+.insight-box{
+    display:table;
+    margin: 30px;
+    vertical-align: middle;
+    padding: 1px;
+    width: 100%;
+    height: auto;
+    color: #363636;
+
+    .insight-img {
+        display:table-cell;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+        width: 85px;
+        height: auto;
+        img {
+        width: 100%;
+        }
+    }
+    .insight-Topbox{
+        width: 90%;
+        height: 20px;
+        margin-left:9px;
+        
+        .insight-Topbox__Btt{
+            position:relative;
+            display:inline-block;
+            height: 25px;  
+            width:100%;
+            padding:2px 0px 2px 5px;
+            margin:0px 0px 5px 2px;
+     
+            color: #363636;
+            vertical-align:middle;
+            
+            .insight-Topbox__Btt-font{
+                font-weight:bold;
+                color:#363636;
+                font-size: 14px;
+            }
+            
+            .insight-Topbox__Btt-font:active{
+                background-color: #ff8587;
+            }
+        }
+        
+    }
+    .insight-Bttbox{
+            display: inline-block;
+            width: 90%;
+            float: left;
+            height: 15px;
+            margin: 15px;
+            list-style: none;
+    
+        .insight-Bttbox__Btt{
+                display: inline-block;
+                color: white;
+                background-color: #bbbbbb;
+                font-size: 11px;
+                border: 1px;
+                border-color: transparent;
+                width: 17px;
+                height: 17px;
+                text-align: center;
+                vertical-align: middle;
+        }
+    }
+}
+
+
+.insight-Bttbox ul, .insight-Bttbox ul li, .insight-Bttbox ul li a{
+    margin: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    padding: 0;
+}
+
+.insight-Bttbox ul:after{
+    content:'';
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+.insight-Bttbox ul li{
+    float: left;
+    display: block;
+    padding: 0;
+}
+.insight-Bttbox ul li a{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    transition: color .25s;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -o-transition: color .25s;
+}
+.insight-Bttbox ul li a:before{
+    content:'';
+    display:absolute;
+    transition: width .25s;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -o-transition: color .25s;
+}
+.insight-Bttbox ul li a:hover{
+    background-color: #ff8587; /* 마우스 오버했을 때 변경되는 값 */
+}
+.insight-Bttbox ul li a:hover:before{
+    width:100%;
+}
+.insight-Bttbox ul li.active a{
+    background-color: #ff8587;
+}
+.insight-Bttbox ul li.active a:before{
+    width:100%;
+}
+
+/* 한글 각 페이지 버튼 활성화 */
+#kr_01 .insight-Bttbox__Btt01, 
+#kr_02 .insight-Bttbox__Btt02, 
+#kr_03 .insight-Bttbox__Btt03, 
+#kr_04 .insight-Bttbox__Btt04,
+#kr_05 .insight-Bttbox__Btt05,
+#kr_06 .insight-Bttbox__Btt06,
+#kr_07 .insight-Bttbox__Btt07,
+#kr_08 .insight-Bttbox__Btt08,
+#kr_09 .insight-Bttbox__Btt09,
+#kr_10 .insight-Bttbox__Btt10,
+#kr_11 .insight-Bttbox__Btt11,
+#kr_12 .insight-Bttbox__Btt12,
+#kr_13 .insight-Bttbox__Btt13,
+#kr_14 .insight-Bttbox__Btt14 {
+    display: inline-block;
+    color: white;
+    background-color: #479fff;
+    font-size: 11px;
+    border: 1px;
+    border-color: transparent;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 알파벳 각 페이지 버튼 활성화 */
+#eng_a .insight-Bttbox__Btt15, 
+#eng_b .insight-Bttbox__Btt16,
+#eng_c .insight-Bttbox__Btt17,
+#eng_d .insight-Bttbox__Btt18,
+#eng_e .insight-Bttbox__Btt19,
+#eng_f .insight-Bttbox__Btt20,
+#eng_g .insight-Bttbox__Btt21,
+#eng_h .insight-Bttbox__Btt22,
+#eng_i .insight-Bttbox__Btt23,
+#eng_j .insight-Bttbox__Btt24,
+#eng_k .insight-Bttbox__Btt25,
+#eng_l .insight-Bttbox__Btt26,
+#eng_m .insight-Bttbox__Btt27,
+#eng_n .insight-Bttbox__Btt28,
+#eng_o .insight-Bttbox__Btt29,
+#eng_p .insight-Bttbox__Btt30,
+#eng_q .insight-Bttbox__Btt31,
+#eng_r .insight-Bttbox__Btt32,
+#eng_s .insight-Bttbox__Btt33,
+#eng_t .insight-Bttbox__Btt34,
+#eng_u .insight-Bttbox__Btt35,
+#eng_v .insight-Bttbox__Btt36,
+#eng_w .insight-Bttbox__Btt37,
+#eng_x .insight-Bttbox__Btt38,
+#eng_y .insight-Bttbox__Btt39,
+#eng_z .insight-Bttbox__Btt40 {    
+    display: inline-block;
+    color: white;
+    background: #8bccff; /* ㄱ,ㄴ,ㄷ과는 다른 값으로 변경하는게 더 예뿔둡! */
+    font-size: 11px;
+    border: 1px;
+    border-color: transparent;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.insight-Hashbox{
+    vertical-align: middle;
+    padding: 20px;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    background-color: white;
+    box-shadow: 1px 2px 5px 1px #888888;
+    color: #363636;
+}
+
+
+
+
+
+/*
+.insight_button_1{
+    width: 325px;
+    height: 50px;
+    margin: 10px 0px 0px 0px;
+    border-radius:8px;
+    border:3px solid white;
+    color: white;
+    background-color: #039BE5;
+    font-size: 20pt;
+}
+
+.insight_button_1:hover{
+    background-color: white;
+    color: #039BE5;
+    border:3px solid #039BE5;
+}
+*/

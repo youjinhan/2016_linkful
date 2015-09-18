@@ -1,0 +1,140 @@
+/* 1차 table 정렬 width */
+
+
+#footer{
+    clear: both;
+}
+
+/* 2차 contents : 자료/북마크 */
+
+.data_url {
+    color: #363636;
+}
+
+
+.data_memo{
+    color:#434343
+}
+
+.data_hashtag{
+    font-weight:bold;
+    color:#fff8d1;
+}
+
+
+/* 2차 contents : 이미지 */
+.image {
+    width: 387px;
+    height: 387px;
+    padding:25px;
+}
+
+.image url {
+    color: #363636;
+}
+
+.img url_button {
+    color:white;
+    background-color: #349cd7;
+}
+
+.image memo{
+    color:#434343
+}
+
+.image hashtag{
+    color: #363636;
+}
+
+.mainpage_url_button{
+    position:relative;
+    display: inline-block;
+}
+.mainpage_url_button_css{
+    color:white;
+    background-color: #bbbbbb;
+    font-size:11px; 
+    border:0px; 
+    outline:0px;
+    margin: 8px 0px 8px 2px;
+    padding:2px 3px 2px 3px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mainpage-modify-icon{
+    width: 20px;
+        height: 20px;
+        
+        cursor: pointer;
+        
+        padding: 0px;
+        margin: 0px 5px 0px -215px;
+}
+.mainpage-delete-icon{
+    width: 20px;
+        height: 20px;
+        
+        cursor: pointer;
+        
+        padding: 0px;
+        margin: 0px 5px 0px 0px;
+}
+
+
+/*삭제팝업*/
+.delete-overlay{
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:9998;
+  padding: 60px 250px;
+  border:none;
+  box-shadow: 1px 2px 5px #888888;
+}
+
+.delete-overlay:target {
+  visibility: visible;
+  opacity: 1;
+  margin:0px -10px -13px;
+}
+
+.delete-alarm {
+    position: fixed;
+    left:45%;
+    width:500px;
+    height:75px;
+    color:black;
+    background-color:white;
+    text-align:center;
+    margin:10px -190px;
+    border: none;
+    padding: 10px;
+    line-height:50px;
+    transition: all 5s ease-in-out;
+    z-index:9999;
+}
+
+.delete-alarm .delete_alarm_okay {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    color: white;
+    padding: 3px;
+    background: #19aac4;
+    border: none;
+}
+
+.delete-alarm .delete_alarm_cancel {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    color: white;
+    padding: 3px;
+    background: #19aac4;
+    border: none;
+}

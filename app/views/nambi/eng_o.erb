@@ -1,0 +1,31 @@
+    <%= render :partial => "nambi/partials/header" %>
+<div id="eng_o">
+    <div id="insight">
+        <%= render :partial => "nambi/partials/dic" %>
+        <br>
+                <!--해시태그 출력-->
+                <div class="insight-Hashbox">
+                    <div id="tagall">
+                      <!--여기에 버튼별 결과출력물이 뜨도록 --> 
+                      <div id="eng_o">
+                        <!-- 15. o으로 시작하는거: 세션됨--> 
+                        <% @findeng_o.each do |x| %>
+                                <% tagpick = x.tags.where('tagName like ?',"o%") %>
+                                <% tagpick.each do |t| %>
+                                    <!-- 해당되는게 없으면 배열에 집어넣는다 --중복 필터링 -->  
+                                    <% unless @origin.include?(t.tagName) %>
+                                        <% @origin << t.tagName  %>
+                                    <% end %>   
+                                <% end %>
+                        <% end %>
+                        <!-- 중복된 값이 없는 배열 출력 -->
+                        <% @origin.each do |t| %>
+                            <%= t %> 
+                        <% end %>
+                    </div>      
+                    </div>
+                </div>
+                <!--해시태그 출력 끝-->
+    </div>
+</div>
+<%= render :partial => "nambi/partials/footer" %>

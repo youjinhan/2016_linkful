@@ -1,0 +1,29 @@
+<%= render :partial => "nambi/partials/header_1" %>
+
+<div class="pagedown">
+    <center>
+    <br>
+        <h1 class="logtitle">회원가입 페이지</h1>
+
+        <form action="/nambi/join_process" method="POST">
+            <input type="text" name="userName" class="loginbox__typeA" placeholder="이름을 입력하세요" required><br>
+            <input type="text" name="userId" class="loginbox" placeholder="가입하실 이메일을 입력하세요" required><br>   
+            <input type="password" name="userPw" class="loginbox" placeholder="비밀번호를 설정해주세요" required><br>
+            <input type="submit" value="가입하기" class="login_sumit_button login_sumit_button_css">
+        </form>
+        <br>
+        <font color="#363636" size="0.563em">※ 베타기간동안엔 모든 정보가 수정이 불가하니 정확하게 입력해주시길 바랍니다.
+        </font>
+    </center>
+</div>
+
+<%= render :partial => "nambi/partials/footer" %>
+
+
+<script>
+    <% unless flash[:alert].nil? %>
+    $(document).ready(function(){
+        alert("<%=flash[:alert]%>");
+    });
+    <% end %>
+</script> 

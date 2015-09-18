@@ -1,0 +1,2 @@
+class FindPwController < ApplicationController
+end

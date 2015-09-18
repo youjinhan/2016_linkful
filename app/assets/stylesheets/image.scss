@@ -1,0 +1,105 @@
+
+/* 2차 contents : 이미지 */
+.caption {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 2px 2px 2px #dddddd;
+    background-color: white;
+    margin-right: 3px;
+    margin-bottom:10px;
+    
+    &.is-modifying {
+        .caption__overlay {
+            display: block;
+        }
+    }
+    
+    
+    .caption__image {
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        
+        padding: 2px 2px 0px 2px;
+        margin: 5px;
+        
+    }
+    .caption__overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 25px;
+        color: white;
+        width: 300px;
+        height: 300px;
+        
+    }
+    &:hover {
+        > .caption__overlay {
+            display: block;
+        }
+    }
+    
+    .url__image-url{
+        font-size: 18px;
+        font-weight: bold;
+        color: #363636;
+    }
+    
+    .url__image-memo{
+        color:#363636;
+    }
+    
+    .url__image-hashtag{
+        color:#363636;
+    }
+    
+}
+.caption::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    transition: background .35s ease-out;
+    
+}
+.caption:hover::before,
+.caption.is-modifying::before {
+    background: rgba(255, 255, 255, .9);
+}
+
+
+/* 2차 contents : 이미지 내 image/image_text  값 등은 새로 조정하기  참고 */
+
+.image_url {
+    color: #363636;
+}
+
+.image_url_button {
+    color:#434343
+}
+
+.image_memo{
+    color:#434343
+}
+
+.image_hashtag{
+    font-weight:bold;
+    color:#fff8d1;
+}
+
+
+.category_img_thumbnail {
+    width:200px; /* you can use % */
+    /*opacity:0;*/
+}
+
+
+

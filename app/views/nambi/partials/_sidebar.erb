@@ -1,0 +1,79 @@
+
+<body>
+<div class="sidebar">
+
+<!-- 고정 사이드바:자료입력/해시태그창 -->
+    <!-- 새로운 입력창 다시만드는중 -->
+    <form action="/nambi/write" method="POST">
+        <div class="input_box">
+            <div class="inputbox_urlLink">
+                <input type="hidden" name="user_id" value="<%= session["userId"] %>">
+                <input class="input_box__url" type= "text" name="urlLink" placeholder="URL을 입력하세요" required>
+            </div>
+            <div class="inputbox_urlCategory">
+                <div class="center">
+                    <div class="category_jaryo" style="display: inline-block">
+                        <input type="radio" name="category" value="1" checked="checked">&nbsp;자료
+                    </div>&nbsp;
+                    <div class="category_bookmark" style="display: inline-block">
+                        <input type="radio" name="category" value="2">&nbsp;북마크
+                    </div>&nbsp;
+                    <div class="category_image" style="display: inline-block">
+                        <input type="radio" name="category" value="3">&nbsp;이미지
+                    </div>
+                </div>
+            </div>
+            <div class="inputbox_urlTitle">
+                <input class="input_box__title" type= "text" name="urlTitle" placeholder="제목을 입력하세요" required>
+            </div>
+            <div class="inputbox_urlMemo">
+                <input class="input_box__title" type= "text" name="memo" placeholder="메모를 입력하세요" required>
+            </div>
+            <div class="inputbox_urlhashtag">
+                <!-- pk 어떻게 던져? -->
+                <input type="hidden" class="input_box__title sidebar_hashtag" id="select"  name="tagName" placeholder="해시태그를 입력하세요" required>
+            </div>
+            <div class="inputbox_actions">
+                <button type="submit" class="button button--submit">링크 저장</button>
+            </div>
+        </div>
+    </form>
+    <!-- 새로운 입력창 다시 만들었음 input box name 바꾸지 말기 -->
+
+    <!-- 해시태그 출력창 --><br>
+    
+    <div class="hashtag_output">
+        <div class="hashtag_output__wrapper is-top">
+            <span class="hashtag_output__font" id="btnLatest">최근에 등록한 해시태그</span>
+            <!-- 최신 해시태그 값 출력 -->    
+            <div id="boxLatest"> 
+                <!-- 배열 입력(중복체크하며) -->
+                <% @tagLatest.reverse_each do |x| %>
+                      <% x.tags.reverse_each do |t| %>
+                        <!-- 해당되는게 없으면 배열에 집어넣는다 --중복 필터링 -->  
+                        <% unless @origin.include?(t.tagName) %>
+                            <% @origin << t.tagName  %>
+                        <% end %>     
+                      <% end %>
+                <% end %>
+                <!-- 중복된 값이 없는 배열 출력 -->
+                <% @origin.each do |t| %>
+                        <%= t %> 
+                 <% end %>
+                </div>
+            </div>
+            <span class="hashtag_output__font" id="btnModest">가장 많이 사용한 해시태그</span>
+            <!--최빈 해시태그 값 출력 -->
+            <div id="boxMode">
+                <% @tagMost.each do |tag| %>
+                <!-- 그냥 인덱스로 찍으면  '네이버 => 4' 이렇게 출력되니까  첫번째 값을 찍어줘야해서 [0]을 붙여준다 -->
+                    <%= tag[0] %> 
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <!-- 여기까지 해시태그 출력창 -->
+</body>
+<script type= "text/javascript">
+    
+</script>

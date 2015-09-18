@@ -1,0 +1,27 @@
+<%= render :partial => "nambi/partials/header_1" %>
+
+
+<div class="pagedown"> 
+    <center>
+        <h1 class="logtitle">로그인</h1>
+
+        <!-- 로그인창 --> 
+        <form action="/nambi/login_process" method="POST">
+            <input type="text" class="loginbox__typeA" name="userId" placeholder="이메일을 입력하세요"><br>
+            <input type="password" class="loginbox" name="userPw" placeholder="비밀번호를 입력하세요"><br>
+            <label class="checkbox logfont-blue">
+                <input type="checkbox"> 아이디 저장
+            </label>
+            <br>
+            <input type="submit" class="login_sumit_button login_sumit_button_css" value="LOGIN">
+        </form>
+        <!-- END --> 
+
+        <br>
+        <a href="/nambi/join" class="logfont-blue">회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/nambi/find_pw" class="logfont-blue">비번찾기</a>
+    </center>
+</div>
+
+
+<%= render :partial => "nambi/partials/footer" %>

@@ -1,0 +1,207 @@
+<head>
+ <link rel="stylesheet" type="text/css" href="mainpage.css">
+ <link rel="stylesheet" type="text/css" href="image.css">
+ <link rel="stylesheet" type="text/css" href="header.css">
+</head>
+<hr></hr>
+<body>
+<header id="header">
+    <%= render :partial => "nambi/partials/header" %>
+</header>
+
+<div id="content1"> <!-- 자료&북마크 출력창 -->
+</div>
+
+<div id="content2"> <!-- 이미지 출력창-->
+</div>
+
+<div id="sidebar"> <!-- 고정 사이드바:자료입력/해시태그창 -->
+<!-- 새로운 입력창 다시만드는중 -->
+    <form action="/nambi/write" method="POST">
+        <div id="input_box">
+            <div id="inputbox_urlLink">
+                <input type="hidden" name="user_id" value="<%= session["userId"] %>">
+                <input id="urlLink" type= "text" name="urlLink" placeholder="스크랩할 URL을 입력하세요." required>
+            </div>
+            <div class="line"></div>
+            <div id="inputbox_urlCategory" >
+                <div id="category_jaryo" style="display: inline-block">
+                    <input type="radio" name="category" value="1" checked="checked">자료
+                </div>
+                <div id="category_bookmark" style="display: inline-block">
+                    <input type="radio" name="category" value="2"> 북마크
+                </div>
+                <div id="category_image" style="display: inline-block">
+                    <input type="radio" name="category" value="3"> 이미지</p>
+                </div>
+            </div>
+            <div id="inputbox_urlTitle">
+                <input id="urlTitle" type= "text" name="urlTitle" placeholder="제목" required>
+            </div>
+            <div id="inputbox_urlMemo">
+                <input id="urlMemo" type= "text" name="memo" placeholder="메모" required>
+            </div>
+            <div id="inputbox_urlhashtag">
+                <input id="urlhashtag" type= "text" name="tagFirst" placeholder="해시태그" required>
+            </div>
+            <div id="inputbox_submit_button">
+                <input id="submit_button" type="submit" value="링크저장">
+            </div>
+        </div>
+    </form>
+    <!-- 새로운 입력창 다시 만들었음 input box name 바꾸지 말기 -->
+
+<!-- 해시태그 출력창 --><br>
+<div id="hashtag_output">
+    <a href="">가장 많이 사용한 해시태그</a><br>
+    <a href="">최근에 등록한 해시태그</a>
+    <div class="line"></div>
+</div>
+
+
+</div>
+<!-- 여기까지 해시태그 출력창 -->
+
+
+
+
+
+
+<hr></hr>
+    <!-- 출력 timeline -->
+    <% @url %>
+    
+    <% @url.reverse_each do |x| %>
+        <!-- 상단에 카테고리 IMG 표시-->
+        CATEGORY IMG: <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리"> <br>
+        <!-- CATEGORY DB에 integer 잘들어왔나 확인 -->
+        CATEGORY : <%= x.category %> <br>
+        <!-- 자료/북마크/이미지 글자 형태로 뿌려줘 -->
+            <% if(x.category == 1) %>
+                <h5> 자료 </h5>
+            <% elsif(x.category == 2) %>
+                <h5> 북마크 </h5>
+            <% elsif(x.category == 3) %>
+                <h5> 이미지 </h5>
+            <% end %>
+        URL TITLE : <b><%= x.urlTitle %></b><br>
+        <!-- 링크 누를때 새창으로 눌려야하니까 target="_blank"속성 넣는다 -->
+        URL LINK : <a href="<%= x.urlLink %>" target="_blank"> <%= x.urlLink %> </a> <br>
+        <!-- category가 이미지일 경우 섬네일 띄워줘야하니까 urlLink받은 걸로 썸네일 띄워죠-->
+        <% if(x.category== 3) %>
+            이미지 섬네일: <img src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일" width=20%> <br>
+        <% end %>
+        MEMO : <%= x.memo %> <br>
+        <!-- 해시태그  -->
+        FIRST_HASHTAG : <%= x.tagFirst.split('#').join' ' %> <br>
+        <br>
+        <br>
+        <!-- 각각의 출력 div timeline에 대한 수정/삭제 버튼이있어야하니까 반복문 안에 넣어야합니다 -->
+        
+        
+        <!-- 자료 수정버튼 -->
+        <div class="delete_button">
+           <a class="button" href="/nambi/modify">수정</a> 
+        </div>
+    
+        <!-- 자료 수정버튼 END-->
+        
+        <!-- 자료 삭제버튼과 팝업창 -->
+        <div class="delete_button">
+        	<a class="button" href="#delete_alarm1">삭제</a>
+        </div>
+        
+        <div id="delete_alarm1" class="overlay">
+            <div class="delete_alarm">
+                <p class="delete_text">이 게시물을 삭제하시겠습니까?</p>
+                    <!-- 수정 노노 절대!!! -->
+                    <!-- 특정 게시물의 pk인 id를 날려줘서 삭제-->
+                    <a class="delete_alarm_okay" href="/nambi/delete/<%= x.id %>">확인</a>
+                    <a class="delete_alarm_cancel" href="/nambi/mainpage">취소</a>
+            </div>
+        </div>
+        <!-- 자료 삭제버튼과 팝업창 END -->
+                <hr></hr>
+    <% end %>
+
+
+
+
+
+<hr></hr>
+    <!-- 출력 timeline -->
+    <% @url %>
+    
+    <% @url.reverse_each do |x| %>
+        <!-- 상단에 카테고리 IMG 표시-->
+        CATEGORY IMG: <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리"> <br>
+        <!-- CATEGORY DB에 integer 잘들어왔나 확인 -->
+        CATEGORY : <%= x.category %> <br>
+        <!-- 자료/북마크/이미지 글자 형태로 뿌려줘 -->
+            <% if(x.category == 1) %>
+                <h5> 자료 </h5>
+            <% elsif(x.category == 2) %>
+                <h5> 북마크 </h5>
+            <% elsif(x.category == 3) %>
+                <h5> 이미지 </h5>
+            <% end %>
+        URL TITLE : <b><%= x.urlTitle %></b><br>
+        <!-- 링크 누를때 새창으로 눌려야하니까 target="_blank"속성 넣는다 -->
+        URL LINK : <a href="<%= x.urlLink %>" target="_blank"> <%= x.urlLink %> </a> <br>
+        <!-- category가 이미지일 경우 섬네일 띄워줘야하니까 urlLink받은 걸로 썸네일 띄워죠-->
+        <% if(x.category== 3) %>
+            이미지 섬네일: <img src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일" width=20%> <br>
+        <% end %>
+        MEMO : <%= x.memo %> <br>
+        <!-- 해시태그  -->
+        FIRST_HASHTAG : <%= x.tagFirst.split('#').join' ' %> <br>
+        <br>
+        <br>
+        <!-- 각각의 출력 div timeline에 대한 수정/삭제 버튼이있어야하니까 반복문 안에 넣어야합니다 -->
+        
+        
+        <!-- 자료 수정버튼 -->
+        <div class="delete_button">
+           <a class="button" href="/nambi/modify">수정</a> 
+        </div>
+    
+        <!-- 자료 수정버튼 END-->
+        
+        <!-- 자료 삭제버튼과 팝업창 -->
+        <div class="delete_button">
+        	<a class="button" href="#delete_alarm1">삭제</a>
+        </div>
+        
+        <div id="delete_alarm1" class="overlay">
+            <div class="delete_alarm">
+                <p class="delete_text">이 게시물을 삭제하시겠습니까?</p>
+                    <!-- 수정 노노 절대!!! -->
+                    <!-- 특정 게시물의 pk인 id를 날려줘서 삭제-->
+                    <a class="delete_alarm_okay" href="/nambi/delete/<%= x.id %>">확인</a>
+                    <a class="delete_alarm_cancel" href="/nambi/mainpage">취소</a>
+            </div>
+        </div>
+        
+        
+        <!-- 자료 삭제버튼과 팝업창 END -->
+                <hr></hr>
+    <% end %>
+</div>
+
+
+
+
+</content>
+
+
+<footer>
+    
+</footer>
+
+
+
+</body>
+
+
+
+
