@@ -96,12 +96,20 @@
                         <% end %>
                     </div>
                 </div><!-- class 수정 --><br>
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                    <!-- pk 날리는 방법 1) input hidden 2) data-id="pk"-->
+                    <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
+<!-- 수정 후 저장 -->
+                    <div class="url__actions" style="display:none">
+                        <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">SAVE</a>
+                    </div>                
 
                     <!-- 자료 삭제+수정버튼 -->
-                    <div id="button_div">
+                    <div id="imgbutton_div">
                         <!-- class이름+data-id 이름 바꾸지 마세요-->
                   	<a class="btn btn--modify" data-id="<%= x.id %>" data-type="img">
-                  	    <img src="/img/modifybutton.png" class="mainpage-modify-icon">
+                  	    <img src="/img/modifybutton.png" class="btn btn--icon">
                   	</a>
 
                     <!-- 자료 삭제버튼과 팝업창 -->

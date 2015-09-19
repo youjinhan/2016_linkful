@@ -31,16 +31,21 @@
                             <% end %>
                     </div>
                 </div><!-- class 수정 --><br>
-
+                <!-- 수정 후 저장 -->
+                <div class="url__actions" style="display:none">
+                <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
+                <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">SAVE</a>
+                </div>
+                
                 <!-- 자료 삭제+수정버튼 -->
-                <div id="button_div">
+                <div id="imgbutton_div">
                     <!-- class이름+data-id 이름 바꾸지 마세요-->
                 	<a href="#" class="btn btn--modify" data-id="<%= x.id %>"  data-type="img">
                 	    <img src="/img/modifybutton.png" class="btn btn--icon">
                 	</a>
                 	
                 <!-- 자료 삭제버튼과 팝업창 -->
-                    <a href="#delete_alarm_<%= x.id %>" class="btn" data-id="<%= x.id %>">
+                    <a href="#delete_alarm_<%= x.id %>">
                         <img src="/img/deletebutton.png" class="btn btn--icon">
                     </a>
                 </div>

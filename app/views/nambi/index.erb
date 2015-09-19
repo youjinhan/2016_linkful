@@ -25,7 +25,7 @@
 <!-- big box -->
 <div class="row" id="index_big_box"> 
 
-   
+   <div id="box1">
     <!-- left box -->
     <div class="col-md-8 col-sm-12 col-xs-12 index_left_box" id="index_left_box">
         <div class="index_left_notebook">
@@ -65,8 +65,10 @@
     <!-- middle box end -->
    
     <div class="index_fake_box" id="index_fake_box"></div>
+    </div>
     
     
+    <div id="box22">
     <!-- middle box2 -->
     <div class="col-md-2 col-sm-12 col-xs-12 index_middle_box" id="index_middle_box2">
         <div class="index_left_login">
@@ -108,7 +110,8 @@
             <img class="howtoimage_02" src="/img/index_slide_howtouse_image_02.png">
     </div>
     <!-- right box end -->
-    
+    <div class="index_fake_box" id="index_fake_box"></div>
+    </div>
 </div>
 <!-- big box end -->
 
@@ -121,11 +124,9 @@
     <% end %>
     
     
-    
-
     $('#index_image_howtouse_id_name').click(function() {
 
-        $('#index_left_box').animate({
+        $('#box1').animate({
             left: '-800px'
         }, 300, function() {
             $(this).css('left', '150%');
@@ -135,76 +136,19 @@
             $(this).next().animate({
                 left: '50%'
             }, 10);
-            
-            
-        $('#index_middle_box').animate({
-            left: '-800px'
-        }, 300, function() {
-            $(this).css('left', '150%');
-            $(this).appendTo('#index_big_box');
-        });
-    
-            $(this).next().animate({
-                left: '50%'
-            }, 10);
-            
-        $('.index_fake_box').animate({
-            left: '-800px'
-        }, 1, function() {
-            $(this).css('left', '150%');
-            $(this).appendTo('#index_big_box');
-        });
-    
-            $(this).next().animate({
-                left: '50%'
-            }, 1);    
-            
-});
+    });
 
-$('#index_right_back_button').click(function() {
+    $('#index_right_back_button').click(function() {
 
-        $('#index_middle_box2').animate({
+        $('#box22').animate({
             right: '-800px'
         }, 300, function() {
             $(this).css('right', '150%');
             $(this).appendTo('#index_big_box');
         });
     
-            $(this).next().animate({
-                right: '50%'
-            }, 10);
-             
-            
-        $('#index_right_box').animate({
-            right: '-800px'
-        }, 300, function() {
-            $(this).css('right', '150%');
-            $(this).appendTo('#index_big_box');
-        });
-    
-            $(this).next().animate({
-                right: '50%'
-            }, 10);
-            
-         
-        $('.index_fake_box').animate({
-            right: '-800px'
-        }, 1, function() {
-            $(this).css('right', '150%');
-            $(this).appendTo('#index_big_box');
-        });
-    
-            $(this).next().animate({
-                right: '50%'
-            }, 1);      
-
-            
-       
-            
-});
-
-
-
+          
+    });
 
 
     
