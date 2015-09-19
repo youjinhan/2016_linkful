@@ -4,7 +4,6 @@
         <%= render :partial => "nambi/partials/dic" %>
         <br>
         <div class="insight-Hashbox">
-                    
             <div id="tagall">
                 <!--여기에 버튼별 결과출력물이 뜨도록 --> 
                 <div id="kr-01">
@@ -20,7 +19,8 @@
                     <% end %>
                     <!-- 중복된 값이 없는 배열 출력 -->
                     <% @origin.each do |t| %>
-                        <%= t %> 
+                        <%#= t %> 
+                        <a class="url__hashtag__each url__hashtag__tagbtt" href="/nambi/tagresult?tagSearch=<%=t%>">#<%=t%></a>
                     <% end %>
                 </div>      
             </div>

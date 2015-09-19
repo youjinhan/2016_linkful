@@ -20,7 +20,8 @@
                         <% end %>
                         <!-- 중복된 값이 없는 배열 출력 -->
                         <% @origin.each do |t| %>
-                            <%= t %> 
+                            <%#= t %>
+                        <a class="url__hashtag__each url__hashtag__tagbtt" href="/nambi/tagresult?tagSearch=<%=t%>">#<%=t%></a>
                         <% end %>
                     </div>      
                     </div>

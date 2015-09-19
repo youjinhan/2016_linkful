@@ -6,14 +6,10 @@
     <!-- 새로운 입력창 다시만드는중 -->
     <form action="/nambi/write" method="POST">
         <div class="input_box">
-            <div class="inputbox_urlLink">
-                <input type="hidden" name="user_id" value="<%= session["userId"] %>">
-                <input class="input_box__url" type= "text" name="urlLink" placeholder="URL을 입력하세요" required>
-            </div>
             <div class="inputbox_urlCategory">
                 <div class="center">
                     <div class="category_jaryo" style="display: inline-block">
-                        <input type="radio" name="category" value="1" checked="checked">&nbsp;자료
+                        <input type="radio" name="category" value="1" checked="checked" id="test1">&nbsp;자료
                     </div>&nbsp;
                     <div class="category_bookmark" style="display: inline-block">
                         <input type="radio" name="category" value="2">&nbsp;북마크
@@ -22,6 +18,14 @@
                         <input type="radio" name="category" value="3">&nbsp;이미지
                     </div>
                 </div>
+            </div>
+
+            
+            <div class="inputbox_urlLink">
+                <input type="hidden" name="user_id" value="<%= session["userId"] %>">
+                <center>
+                    <input class="input_box__url" type= "text" name="urlLink" placeholder="저장하고 싶은 URL을 입력하세요." required>
+                </center>
             </div>
             <div class="inputbox_urlTitle">
                 <input class="input_box__title" type= "text" name="urlTitle" placeholder="제목을 입력하세요" required>
@@ -58,7 +62,8 @@
                 <% end %>
                 <!-- 중복된 값이 없는 배열 출력 -->
                 <% @origin.each do |t| %>
-                        <%= t %> 
+                        <%#= t %>
+                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t%>">#<%=t%></a>
                  <% end %>
                 </div>
             </div>
@@ -67,7 +72,8 @@
             <div id="boxMode">
                 <% @tagMost.each do |tag| %>
                 <!-- 그냥 인덱스로 찍으면  '네이버 => 4' 이렇게 출력되니까  첫번째 값을 찍어줘야해서 [0]을 붙여준다 -->
-                    <%= tag[0] %> 
+                    <%#= tag[0] %> 
+                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=tag[0]%>">#<%=tag[0]%></a>
                 <% end %>
             </div>
         </div>

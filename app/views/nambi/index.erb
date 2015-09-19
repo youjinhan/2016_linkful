@@ -14,11 +14,11 @@
               background: -o-linear-gradient(top, #ffffff, #d1e5f0);}
 </style>
     
-<!-- 부트스트랩 -->
+<!-- 부트스트랩 --> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+
     
 <img class="index_logo" src="/img/logo.png">
 
@@ -27,7 +27,7 @@
   
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" role="listbox" id="carousel">
     <div class="item active">
           <!-- left box -->
             <div class="col-md-8 col-sm-12 col-xs-12 index_left_box" id="index_left_box">
@@ -77,9 +77,9 @@
             <!-- middle box -->
             <div class="col-md-2 col-sm-12 col-xs-12 index_middle_box" id="index_middle_box">
                 <div class="index_left_login">
-                    <img class="index_image_howtouse" id="index_image_howtouse_id_name" src="/img/index_howto_button.png">
+                    <img class="index_image_howtouse2" src="/img/index_howto_button.png">
                     <div class="index_left_slogan">
-                        <img class="index_slogan" src="/img/slogan.png">
+                        <img class="index_slogan2" src="/img/slogan.png">
                     </div>
                 </div>    
                 <!-- 로그인창 --> 
@@ -110,7 +110,7 @@
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <img class="index_right_back_button" id="index_right_back_button" src="/img/index_backtoindex_button.png"></a>
                     
-                    <div class="index_right_slogan">직관적이고 깔끔한 링크풀만의 스크랩 시스템</div>
+                    <div class="index_right_slogan">직관적이고 깔끔한 링크풀만의 URL 저장 방법</div>
                     <img class="howtoimage_01" src="/img/index_slide_howtouse_image_01.png">
                     <img class="howtoimage_02" src="/img/index_slide_howtouse_image_02.png">
             </div>
@@ -126,19 +126,6 @@
 
 
 
-<!-- big box -->
-<div class="row" id="index_big_box"> 
-
-   
-    
-  
-
-    
-  
-    
-</div>
-<!-- big box end -->
-
 <!-- 로그인 팝업창 -->  
 <script>
     <% unless flash[:alert].nil? %>
@@ -147,6 +134,10 @@
     });
     <% end %>
     
+    $('.carousel').carousel({
+    interval: false
+    });
+   
 </script>
 <!-- END -->  
 <%= render :partial => "nambi/partials/footer" %>

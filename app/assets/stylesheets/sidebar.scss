@@ -28,7 +28,7 @@
     .input_box__title {
         position: relative;
         display: block;
-        padding: 0px;
+        padding: 5px;
         height: auto;
         width: 90%;
         border: none;
@@ -46,21 +46,20 @@
     /*padding-left:15px;*/
     /*margin-bottom:10px;*/
     
-    padding:0px;
-    
+    padding: 0px 20px 0px 20px;
     margin: 10px 5px 10px 4px;
         
         
         .category_jaryo{
-            margin-right: 2px;
+            margin: 0px 2pX 0px 2px;
         }
         
         .category_bookmark{
-            margin-right: 2px;
+            margin: 0px 2pX 0px 2px;
         }
         
         .category_image{
-            margin-right: 2px;
+            margin: 0px 2pX 0px 2px;
         }
         
 }
@@ -107,20 +106,21 @@
     border:none;
     margin: 0 auto;
     width: 93%;
-    padding: 10px 0px 10px 0px;
+    padding: 2px 0px 0px 0px;
 }
     
 #boxMode{
     border:none;
     margin: 0 auto;
     width: 93%;
-    padding: 10px 0px 12px 0px;
+    padding: 5px 0px 10px 0px;
 }
 
 
 
 .line {
-    border:0;border-bottom:5px;
+    border:0;
+    border-bottom:5px;
     border-style: solid;
     border-color: #70cbff;
 }

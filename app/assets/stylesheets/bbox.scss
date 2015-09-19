@@ -18,6 +18,15 @@
     &.contentBox--image { 
         margin-top: 23px;
     }
+    &.contentBox--tagresult{
+    top: 30px;
+    padding: 0px 0px 30px 75px;
+    display: block;
+    overflow: auto;
+    margin: 0 auto 0 auto; /* Center content */
+    width: 98%; /* Sizing - any length : 800px */
+    float: left;
+    }
     .contentBox__url-list {
         width: 74%;
         float: left;
@@ -78,7 +87,7 @@
     text-align: center;
     border: none;
     box-shadow: 1px 1px 2px #b1b1b1;
-    }
+}
 
 
 .checkbox {
@@ -242,4 +251,13 @@
     font-weight: bold;
     line-height: 32px;
     padding: 0 4px;
+}
+
+.carousel-control {
+    &.left {
+        background-image: none !important;
+    }
+    &.right {
+        background-image: none !important;
+    }
 }

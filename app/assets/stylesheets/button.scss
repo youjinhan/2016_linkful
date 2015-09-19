@@ -30,7 +30,7 @@
 #imgbutton_div{
     float: left;
     padding: 0px;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .btn {
@@ -51,7 +51,8 @@
     }
     &.btn--modify {
         display: inline-block;
-        
+        margin:0px;
+        padding:0px;
     }
     &.btn--icon {
         width: 20px;
@@ -60,7 +61,7 @@
         cursor: pointer;
         
         padding: 0px;
-        margin: 0px 5px 0px 0px;
+        margin: 0px 0px 0px 0px;
     }
 }
 
@@ -140,5 +141,25 @@
     background-color: white;
     color: #22313f;
     /* border:3px solid #19aac4;; */
+    }
+}
+
+
+/* 전체 해시태그보기 버튼 */
+.url__hashtag__tagbtt{
+    font-size: 12px;
+    color: white;
+    background: #22313f;
+    padding: 3px 4px 3px 4px;
+    margin: 2px 2px 2px 0;
+    text-decoration: none;
+    /*white-space: nowrap;*/
+    display: inline-block;
+    opacity: 0.99;
+    &.url__hashtag__tagbtt:hover{
+    color: #22313f;
+    background: white;
+    text-decoration: none;
+    border: 1px solid #22313f;
     }
 }

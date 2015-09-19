@@ -13,6 +13,14 @@ body{
 .index_image_howtouse{
     position:relative;
     width:125px;
+    top: -60px;
+    margin: 0px 0px 0px 35px;
+    
+}
+
+.index_image_howtouse2{
+    position:relative;
+    width:125px;
     top:-50px;
     
     margin: 0px 0px 0px 210px;
@@ -41,6 +49,15 @@ body{
 }
 
 .index_slogan{
+    width: 360px;
+    margin:35px 0px 20px 0px;
+    padding:0px;
+    left: -20px;
+    position: relative;
+    
+}
+
+.index_slogan2{
     width: 360px;
     margin:0px 0px 20px 0px;
     padding:0px;
@@ -112,7 +129,7 @@ body{
     position:relative;
     display:inline-block;
     width:135px;
-   
+   margin: 5px 0px 0px 15px;
 }
 
 .index_right_slogan{
@@ -124,7 +141,7 @@ body{
     font-weight: bold;
     color:#73c5ff;
     
-    margin: 0px 0px 30px 70px;
+    margin: 0px 0px 30px 180px;
 }
 
 .howtoimage_01{
@@ -163,9 +180,6 @@ body{
     padding: 0px;
 }
 
-.index_fake_box{
-    width:800px;
-    height: 800px;
-
-    
+.carousel-control.left{
+    background-color:transparent;
 }

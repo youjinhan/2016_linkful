@@ -48,7 +48,9 @@
                     <div class="url__hashtag">
                             <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                             <% x.tags.each do |t| %>
-                                <span class="url__hashtag__each" data-id="<%= t.id %>" data-type="url" >#<%= t.tagName %></span>
+                                <!--<span class="url__hashtag__each" data-id="<%= t.id %>" data-type="url" >#<%= t.tagName %></span>-->
+                                <!-- GET방식으로 tagresult page의 tagSearch= " " 부분에 날려준다 -->
+                                <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
                             <% end %>
                     </div>
                 </div>
@@ -143,43 +145,7 @@
           }
         }
         
-        //태그 활성화 
-        $(".url__hashtag__each").click(function() {
-         var id = $(this).data('id'); //this: save버튼 - sava버튼에 등록해둔 게시물 고유의 id 갖고오고 
-         //수정할 url 전체 class 지정 
-          //var url_content;
-          //변수 초기화시켜주고 
-          //var tagclick;
-         
-         // .val() : input에서만 쓸수 있고 
-         // .text() : 수정된 글이써져있는걸 갖고와
-         //우리가 수정해줄 거는 4개의 요소니까
-         //url_content = $('.url[data-id="' + id + '"]');
-         console.log({
-                //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
-                id: id
-                });         
-		 $.ajax({
-			 type: "POST",		//요청방식
-			 url: "/nambi/tagclick",	//요청URL
-			 data: {
-			     //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
-			     id: id
-			 },
-			 dataType:"json", //응답데이타타입
-			 success: function(data) {	//정상응답일 경우
-			     alert('해시태그 활성 성공');
-			     console.log(data);
-			 },
-			 error: function(data) {	//에러응답일 경우
-			     alert("서버에 문제가 발생했습니다.");
-			     console.log(result);
-				 return false;
-			 }
-		 });
-	 });
-	 
-        //수정버튼
+                //수정버튼
         $('.btn--modify').click(function() {
           //timeline 고유 id를 갖고와야지
           //alert('hi');

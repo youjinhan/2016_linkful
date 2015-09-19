@@ -53,7 +53,8 @@
                         <div class="url__hashtag2">
                                 <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                                 <% x.tags.each do |t| %>
-                                     #<%= t.tagName %> 
+                                     <%#= t.tagName %> 
+                                     <a class="url__hashtag__each" style="color: white;" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
                                 <% end %>
                         </div>
                     </div>
@@ -78,35 +79,10 @@
             <img class="contentBox__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
             <div class="caption__overlayA">
         <% end %>
-                <div class="url__editable url__image-title" style="color:black; font-weight:bold;"><%= x.urlTitle %></div>
+                <div class="url__editable url__image-title"><%= x.urlTitle %></div>
                       
-                <!-- 주소복사 링크 -->
-                <div class="mainpage_url_button">
-                    <button class="mainpage_url_button_css" onclick="clipboard.copy('<%= x.urlLink %>');">주소복사</button>
-                </div>
-            
-                <br>
-                <div class="url__editable url__image-link" style="display:none" ><%= x.urlLink %></div>
-                <div class="url__editable url__image-memo"><%= x.memo %></div><!-- class 수정 --><br>
-                <div class="url__editable url__image-hashtag">
-                    <div class="url__hashtag">
-                        <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
-                        <% x.tags.each do |t| %>
-                             #<%= t.tagName %> 
-                        <% end %>
-                    </div>
-                </div><!-- class 수정 --><br>
-                    <!-- class이름+data-id 이름 바꾸지 마세요-->
-                    <!-- pk 날리는 방법 1) input hidden 2) data-id="pk"-->
-                    <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
-<!-- 수정 후 저장 -->
-                    <div class="url__actions" style="display:none">
-                        <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
-                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">저장</a>
-                    </div>                
-
-                    <!-- 자료 삭제+수정버튼 -->
-                    <div id="imgbutton_div">
+                      <!-- 자료 삭제+수정버튼 -->
+                    <div id="imgbutton_div" style="display:inline-block; float:right">
                         <!-- class이름+data-id 이름 바꾸지 마세요-->
                   	<a class="btn btn--modify" data-id="<%= x.id %>" data-type="img">
                   	    <img src="/img/modifybutton.png" class="btn btn--icon">
@@ -126,6 +102,37 @@
                     </div>
                 </div>
                 <!-- 자료 삭제버튼과 팝업창 END --><br>
+                      
+                      
+                <!-- 주소복사 링크 -->
+                <div class="mainpage_url_button">
+                    <button class="mainpage_url_button_css" onclick="clipboard.copy('<%= x.urlLink %>');">주소복사</button>
+                </div>
+            
+                <br>
+                <div class="url__editable url__image-link" style="display:none" ><%= x.urlLink %></div>
+                <div class="url__editable url__image-memo"><%= x.memo %></div><!-- class 수정 --><br>
+                <div class="url__editable url__image-hashtag">
+                    <div class="url__hashtag">
+                        <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
+                        <% x.tags.each do |t| %>
+                             <%#= t.tagName %> 
+                             <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                        <% end %>
+                    </div>
+                </div><!-- class 수정 --><br>
+                    <!-- class이름+data-id 이름 바꾸지 마세요-->
+                    <!-- pk 날리는 방법 1) input hidden 2) data-id="pk"-->
+                    <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
+<!-- 수정 후 저장 -->
+                    <div class="url__actions" style="display:none">
+                        <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
+                        <center>
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">저장</a>
+                        </center>
+                    </div>                
+
+                    
             </div>
         </div>
             <% end %>
