@@ -35,14 +35,18 @@
 
 .btn {
     &.btn--save {
+        background:#479fff;
+        color:white;
         display: inline-block;
-        padding: 8px 12px;
+        padding: 4px 12px;
         text-align: center;
-        border: 1px solid #efefef;
-        border-radius: 5px;
+        border: none;
+        border-radius: 3px;
         cursor: pointer;
+        
         &:hover {
           background: #eeeeee;
+          color: #363636;
         }
     }
     &.btn--modify {
@@ -127,13 +131,14 @@
     margin: 10px 0px 0px 0px;
     /* border:3px solid white; */
     color: white;
-    background-color: #19aac4;
-    box-shadow: 1px 1px 5px #616161;
+    background-color: #22313f;
+    border: none;
+    box-shadow: 1px 1px 2px #B1B1B1;
     font-size: 20pt;
     
     &.login_sumit_button_css:hover{
     background-color: white;
-    color: #19aac4;;
+    color: #22313f;
     /* border:3px solid #19aac4;; */
     }
 }

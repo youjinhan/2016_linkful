@@ -58,7 +58,7 @@
                 <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
                 <div class="url__actions">
                     <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
-                    <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">SAVE</a>
+                    <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">저장</a>
                 </div>
             </div>
         <% end %>
@@ -165,11 +165,11 @@
 			 data: {
 			     //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
 			     id: id
-			     },
+			 },
 			 dataType:"json", //응답데이타타입
 			 success: function(data) {	//정상응답일 경우
 			     alert('해시태그 활성 성공');
-			     window.location="/nambi/tagclick";
+			     console.log(data);
 			 },
 			 error: function(data) {	//에러응답일 경우
 			     alert("서버에 문제가 발생했습니다.");

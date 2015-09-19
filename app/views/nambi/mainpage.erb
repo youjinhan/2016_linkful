@@ -50,7 +50,7 @@
                     <div class="url__editable url__data-memo"><%= x.memo %></div>
                     <!-- class이름+data-id 이름 바꾸지 마세요-->
                     <div class="url__editable url__data-hashtag">
-                        <div class="url__hashtag">
+                        <div class="url__hashtag2">
                                 <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                                 <% x.tags.each do |t| %>
                                      #<%= t.tagName %> 
@@ -63,7 +63,7 @@
                     <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
                     <div class="url__actions">
                         <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
-                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">SAVE</a>
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">저장</a>
                     </div>
                 </div>
             <% end %>
@@ -76,7 +76,7 @@
         
         <div class="caption"  data-id="<%= x.id %>">
             <img class="contentBox__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
-            <div class="caption__overlay">
+            <div class="caption__overlayA">
         <% end %>
                 <div class="url__editable url__image-title" style="color:black; font-weight:bold;"><%= x.urlTitle %></div>
                       
@@ -102,7 +102,7 @@
 <!-- 수정 후 저장 -->
                     <div class="url__actions" style="display:none">
                         <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
-                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">SAVE</a>
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">저장</a>
                     </div>                
 
                     <!-- 자료 삭제+수정버튼 -->

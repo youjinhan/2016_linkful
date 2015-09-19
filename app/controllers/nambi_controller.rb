@@ -193,11 +193,13 @@ class NambiController < ApplicationController
     
     #태그 클릭 활성화 창
     def tagclick
-        @ids = Tag.where(id: params[:id]).take
+        tag = Tag.find_by_id(params[:id])
         
-        #@ids = params[:id]
-        render :json => {"data" => @ids}
-
+        puts "LOGTEST"
+        puts tag.tagName
+        
+        render :json => {"data" => tag.tagName}
+        
         #@tagclick=Tag.where(id: @ids).tagName
 
         #@showyes = @tagclick+" 에 대한 검색결과입니다. "

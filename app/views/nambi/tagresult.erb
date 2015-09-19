@@ -82,7 +82,7 @@
                     <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
                     <div class="url__actions">
                         <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
-                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">SAVE</a>
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="url">저장</a>
                     </div>
                 </div>
             <% end %>
@@ -94,9 +94,9 @@
             <% if x.category == 3 %>
         <% if(x.category == 3) %>
         
-        <div class="caption" data-id="<%= x.id %>">
+        <div class="caption"  data-id="<%= x.id %>">
             <img class="contentBox__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
-            <div class="caption__overlay">
+            <div class="caption__overlayA">
         <% end %>
                 <div class="url__editable url__image-title" style="color:black; font-weight:bold;"><%= x.urlTitle %></div>
                       
@@ -116,26 +116,35 @@
                         <% end %>
                     </div>
                 </div><!-- class 수정 --><br>
-
-                <!-- 자료 삭제+수정버튼 -->
-                <div id="button_div">
                     <!-- class이름+data-id 이름 바꾸지 마세요-->
-                   <a class="btn btn--modify" data-id="<%= x.id %>" data-type="img">
-                       <img src="/img/modifybutton.png" class="mainpage-modify-icon"></a>
-                   
+                    <!-- pk 날리는 방법 1) input hidden 2) data-id="pk"-->
+                    <!-- <input type="button" value="Ajax 전송" onclick="formSubmit()" /> -->
+<!-- 수정 후 저장 -->
+                    <div class="url__actions" style="display:none">
+                        <!-- 버튼에다가도 게시글의 고유 id를 박아줘야 한다 -->
+                        <a class="btn btn--save" data-id="<%= x.id %>" data-type="img">저장</a>
+                    </div>                
+
+                    <!-- 자료 삭제+수정버튼 -->
+                    <div id="imgbutton_div">
+                        <!-- class이름+data-id 이름 바꾸지 마세요-->
+                  	<a class="btn btn--modify" data-id="<%= x.id %>" data-type="img">
+                  	    <img src="/img/modifybutton.png" class="btn btn--icon">
+                  	</a>
+
                     <!-- 자료 삭제버튼과 팝업창 -->
                     <a href="#delete_alarm_<%= x.id %>" class="btn" data-id="<%= x.id %>">
-                        <img src="/img/deletebutton.png" class="btn btn--icon"></a>
+                        <img src="/img/deletebutton.png" class="btn btn--icon">
+                    </a>
                 </div>
-        
+            
                 <div id="delete_alarm_<%= x.id %>" class="delete-overlay">
                     <div class="delete-alarm">
                         이 게시물을 삭제하시겠습니까?
                         <a class="delete_alarm_okay" href="/nambi/delete/<%= x.id %>">확인</a>
-                        <a class="delete_alarm_cancel" href="/nambi/tagresult/">취소</a>
+                        <a class="delete_alarm_cancel" href="/nambi/mainpage">취소</a>
                     </div>
                 </div>
-                
                 <!-- 자료 삭제버튼과 팝업창 END --><br>
             </div>
         </div>
@@ -147,6 +156,7 @@
 </body>
 
 
+<!-- 위치 옮기지마세요 -->
 <!-- 위치 옮기지마세요 -->
 <script type="text/javascript">
     $(function(){
@@ -252,7 +262,7 @@
                     // 수정 중일 때는 urlLink 입력할 수 있도록 창 활성화 해주고,
                     url_content.find('.url__image-link').show();
                     // 주소복사 버튼을 숨겨준다.
-                    url_content.find('.data_url_button').hide();
+                    url_content.find('.mainpage_url_button').hide();
                     // 수정버튼을 숨겨준다 
                     url_content.find('.btn--modify').hide();
                     // 저장 버튼 보이기 : class이름 url__actions로 함 
