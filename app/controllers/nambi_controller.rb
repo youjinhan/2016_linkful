@@ -199,9 +199,9 @@ class NambiController < ApplicationController
             url.user_id = params[:user_id]
             url.category = params[:category]
             url.urlTitle = params[:urlTitle]
-            
                 if Url.where(user_id:session["userId"], category:1)
-                    if params[:urlLink].include? "https" 
+                    if params[:urlLink].include? "https"
+                        # gsub / 바꿀내용 /,''    --> 바꿀내용을 빈칸으로 대체해버림-> 즉, 없애버림
                         url.urlLink = params[:urlLink].gsub /https\:\/\//,''
                     elsif params[:urlLink].include? "http"
                         #url.urlLink = params[:urlLink].delete"http://"
@@ -254,9 +254,9 @@ class NambiController < ApplicationController
         
         new_tags = params[:tagName]     
         new_tag_list = new_tags.gsub(" ","") 
-        new_tag_list_real = new_tag_list.split(",") 
+        new_tag_list = new_tag_list.split(" ") 
         
-        new_tag_list_real.each do |t|
+        new_tag_list.each do |t|
             created = Tag.create(:tagName => t)
             url_m.tags << created
         end    
