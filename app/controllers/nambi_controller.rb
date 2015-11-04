@@ -252,13 +252,14 @@ class NambiController < ApplicationController
         url_m.urlTitle = params[:urlTitle]
         url_m.memo = params[:memo]
         
-        url_m = Url.find(params[:post][:id])
-        category = url_m.tags.find(params[:tagName][:id])
-        #post.categories.delete(category)
+        
+        category = url_m.tags.find(params[:tag][:id])
+        
         if category
-            url_m.tags.delete()
+            
+            url_m.tags.delete(category)
         end
-        #url_m.tags.delete()
+       
         new_tags = params[:tagName]     
         new_tag_list = new_tags.gsub(" ","") 
         new_tag_list = new_tag_list.split(" ") 
