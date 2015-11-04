@@ -13,7 +13,11 @@
             <img class="caption__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
             <div class="caption__overlay">
         <% end %>
-                <div class="url__editable url__image-title"><%= x.urlTitle %></div>
+                
+                <div  class="url__editable url__image-title">
+                    <!-- image에서는 사용자들이 복붙해온 url그대로 db에 넣고 그대로view에 뿌려준다  -->
+                    <a href="<%= x.urlLink %>" target="_blank"><%= x.urlTitle %></a>
+                </div>
     
 
                 
@@ -53,7 +57,7 @@
                             <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                             <% x.tags.each do |t| %>
                                  <%#= t.tagName %> 
-                                 <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                                 <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                             <% end %>
                     </div>
                 </div><!-- class 수정 --><br>

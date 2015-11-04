@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'scrolls', '~> 0.3.8'
 gem 'schema_auto_foreign_keys'
 gem 'mailgun_rails'

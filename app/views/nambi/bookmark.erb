@@ -11,6 +11,8 @@
                 <!-- 상단에 카테고리 IMG 표시-->
                 <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리" style="width: 5.5%"><br>
                  <div class="url__editable url__data-title"  style="display: inline-block">
+                 <!-- urllink -->
+                 
                  <a href="http://<%= x.urlLink %>" target="_blank"><%= x.urlTitle %></a>
                  </div> 
         
@@ -48,8 +50,7 @@
                     <div class="url__hashtag">
                             <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                             <% x.tags.each do |t| %>
-                                 <%#= t.tagName %> 
-                                 <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                                 <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                             <% end %>
                     </div>
                 </div>
@@ -131,9 +132,8 @@
               //1. 수정가능한 텍스트들을 contenteditable -> true
               //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
               // is-modifying은 css적용을 위한 것
-              url_content.find('.url__data-link').attr('contenteditable', true); // 9월 10일 안누리
-                    //url_content.find('.url__data-link').attr('style', 'color : black'); // 9월 10일 안누리
-              url_content.find('.url__data-link').addClass('is-modifying'); // 9월 10일 안누리
+              url_content.find('.url__data-link').attr('contenteditable', true); 
+              url_content.find('.url__data-link').addClass('is-modifying'); 
               url_content.find('.url__data-title').attr('contenteditable', true);
               url_content.find('.url__data-title').addClass('is-modifying');
               url_content.find('.url__data-memo').attr('contenteditable', true);
@@ -166,7 +166,7 @@
          // .text() : 수정된 글이써져있는걸 갖고와
          //우리가 수정해줄 거는 4개의 요소니까
          var url_content = $('.url[data-id="' + id + '"]');
-         var urlLink = url_content.find('.url__data-link').text(); // 9월 10일 안누리
+         var urlLink = url_content.find('.url__data-link').text(); 
          var urlTitle = url_content.find('.url__data-title').text();
          var memo = url_content.find('.url__data-memo').text();
          var tagName = url_content.find('.url__data-hashtag').text();
@@ -175,8 +175,8 @@
                 id: id,
                 urlLink: urlLink,   // 9월 10일 안누리
                 urlTitle: urlTitle,
-                memo: memo
-                //tagName: tagName
+                memo: memo,
+                tagName: tagName
             });         
 		 $.ajax({
 			 type: "POST",		//요청방식
@@ -186,8 +186,8 @@
 			     id: id,
 			     urlLink: urlLink,   // 9월 10일 안누리
 			     urlTitle: urlTitle,
-			     memo: memo
-			     //tagName: tagName
+			     memo: memo,
+			     tagName: tagName
 			 },
 			 dataType:"json", //응답데이타타입
 			 success: function(result) {	//정상응답일 경우

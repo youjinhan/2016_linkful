@@ -50,7 +50,7 @@
                             <% x.tags.each do |t| %>
                                 <!--<span class="url__hashtag__each" data-id="<%= t.id %>" data-type="url" >#<%= t.tagName %></span>-->
                                 <!-- GET방식으로 tagresult page의 tagSearch= " " 부분에 날려준다 -->
-                                <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                                <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                             <% end %>
                     </div>
                 </div>

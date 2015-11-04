@@ -10,7 +10,7 @@
                       <div id="eng_t">
                         <!-- 19. t으로 시작하는거: 세션됨--> 
                         <% @findeng_t.each do |x| %>
-                                <% tagpick = x.tags.where('tagName like ?',"t%") %>
+                                <% tagpick = x.tags.where("(tagName >= ? and tagName < ?) or (tagName >= ? and tagName < ?)", "T", "U","t","u") %>
                                 <% tagpick.each do |t| %>
                                     <!-- 해당되는게 없으면 배열에 집어넣는다 --중복 필터링 -->  
                                     <% unless @origin.include?(t.tagName) %>
@@ -21,7 +21,7 @@
                         <!-- 중복된 값이 없는 배열 출력 -->
                         <% @origin.each do |t| %>
                            <%#= t %>
-                        <a class="url__hashtag__each url__hashtag__tagbtt" href="/nambi/tagresult?tagSearch=<%=t%>">#<%=t%></a>
+                        <a class="url__hashtag__each url__hashtag__tagbtt" href="/nambi/tagresult?tagSearch=<%=t%>"><%=t%></a>
                         <% end %>
                     </div>      
                     </div>

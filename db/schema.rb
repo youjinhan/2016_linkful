@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 20150907102202) do
     t.string   "userId"
     t.string   "userName"
     t.string   "userPw"
-    t.string   "reset_password_token"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "urls", force: :cascade do |t|

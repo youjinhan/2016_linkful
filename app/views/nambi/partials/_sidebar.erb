@@ -63,7 +63,7 @@
                 <!-- 중복된 값이 없는 배열 출력 -->
                 <% @origin.each do |t| %>
                         <%#= t %>
-                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t%>">#<%=t%></a>
+                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t%>"><%=t%></a>
                  <% end %>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <% @tagMost.each do |tag| %>
                 <!-- 그냥 인덱스로 찍으면  '네이버 => 4' 이렇게 출력되니까  첫번째 값을 찍어줘야해서 [0]을 붙여준다 -->
                     <%#= tag[0] %> 
-                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=tag[0]%>">#<%=tag[0]%></a>
+                        <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=tag[0]%>"><%=tag[0]%></a>
                 <% end %>
             </div>
         </div>

@@ -70,7 +70,7 @@
                                 <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                                 <% x.tags.each do |t| %>
                                      <%#= t.tagName %>
-                                     <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                                     <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                                 <% end %>
                             </div>
                     </div>
@@ -111,7 +111,7 @@
                         <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                         <% x.tags.each do |t| %>
                              <%#= t.tagName %> 
-                             <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>">#<%=t.tagName%></a>
+                             <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                         <% end %>
                     </div>
                 </div><!-- class 수정 --><br>

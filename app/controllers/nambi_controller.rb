@@ -195,25 +195,44 @@ class NambiController < ApplicationController
     def write
         #세션 된 user_id를 입력창에서 input=hidden 으로 넘겨주니까 
         #수정 노노
-        url=Url.new
-        url.user_id = params[:user_id]
-        url.category = params[:category]
-        url.urlTitle = params[:urlTitle]
-        url.urlLink = params[:urlLink]
-        url.memo    = params[:memo]
-        url.tagFirst  = params[:tagFirst]
-        url.star    = params[:star]
-        # 입력창에서 1,2,3이런 식으로 받아온거를
-        new_tags = params[:tagName] #1,2,3
-        # ','를 기준으로 잘라서 + 빈 공백은 제거하며 list형태로 넣어준다
-        new_tag_list = new_tags.gsub(" ","") #1. 빈 공백 제거: replace==gsub
-        new_tag_list = new_tag_list.split(",") #2. [1,2,3] --> ","" 기준으로 string token
-        # 반복문 돌리면서 Tag db에 넣고 + url 테이블이랑 이어준다 
-        new_tag_list.each do |t|
-            created = Tag.create(:tagName => t)
-            # #Tag<id:1 , tagName :1>
-            url.tags << created
-        end
+            url=Url.new
+            url.user_id = params[:user_id]
+            url.category = params[:category]
+            url.urlTitle = params[:urlTitle]
+            
+                if Url.where(user_id:session["userId"], category:1)
+                    if params[:urlLink].include? "https" 
+                        url.urlLink = params[:urlLink].gsub /https\:\/\//,''
+                    elsif params[:urlLink].include? "http"
+                        #url.urlLink = params[:urlLink].delete"http://"
+                        url.urlLink = params[:urlLink].gsub /http\:\/\//,''
+                    else    
+                        url.urlLink = params[:urlLink]
+                    end
+                elsif Url.where(user_id:session["userId"], category:2)
+                    if params[:urlLink].include? "https://"
+                        url.urlLink = params[:urlLink].gsub /https\:\/\//,''
+                    elsif params[:urlLink].include? "http://"
+                        url.urlLink = params[:urlLink].gsub /http\:\/\//,''
+                    else    
+                        url.urlLink = params[:urlLink]
+                    end
+                else
+                    url.urlLink = params[:urlLink]
+                end
+            url.memo    = params[:memo]
+            # 입력창에서 1,2,3이런 식으로 받아온거를
+            new_tags = params[:tagName] #1,2,3
+            # ','를 기준으로 잘라서 + 빈 공백은 제거하며 list형태로 넣어준다
+            new_tag_list = new_tags.gsub(" ","") #1. 빈 공백 제거: replace==gsub
+            new_tag_list_real = new_tag_list.split(",") #2. [1,2,3] --> ","" 기준으로 string token
+            # 반복문 돌리면서 Tag db에 넣고 + url 테이블이랑 이어준다 
+            new_tag_list_real.each do |t|
+                created = Tag.create(:tagName => t)
+                # #Tag<id:1 , tagName :1>
+                url.tags << created
+            end
+       
         
         print url.tags
         # [#Tag<id:1>, #Tag<id:2>] --> db이어졌음 ㅇㅋ 
@@ -221,7 +240,30 @@ class NambiController < ApplicationController
        
         redirect_to :back
     end
-
+    #수정페이지 
+    #코드수정 노노!!!!!!!!
+    def update
+        #완전중요!!!!! 수정할 값만 넣어줘야함!! user_id 가 비어있으면 nil이 되서 timeline이 날라가!!!!!!
+        #글 id 뽑아와서 
+        url_m = Url.find(params[:id])
+        #수정할 3개의 값을 넣어!!!! 
+        #json에서 data: {이름} 이거랑 같아야해!!!!!!!!!!!!!! 
+        url_m.urlLink = params[:urlLink]
+        url_m.urlTitle = params[:urlTitle]
+        url_m.memo = params[:memo]
+        
+        new_tags = params[:tagName]     
+        new_tag_list = new_tags.gsub(" ","") 
+        new_tag_list_real = new_tag_list.split(",") 
+        
+        new_tag_list_real.each do |t|
+            created = Tag.create(:tagName => t)
+            url_m.tags << created
+        end    
+          
+        url_m.save
+        render :json => {"result" => "success", "url" => url_m}
+    end
     
     def join
     end
@@ -255,23 +297,7 @@ class NambiController < ApplicationController
         redirect_to '/'
     end
     
-    #수정페이지 
-    #코드수정 노노!!!!!!!!
-    def update
-        #완전중요!!!!! 수정할 값만 넣어줘야함!! user_id 가 비어있으면 nil이 되서 timeline이 날라가!!!!!!
-        #글 id 뽑아와서 
-        url_m = Url.find(params[:id])
-        #r수정할 3개의 값을 넣어!!!! 
-        #json에서 data: {이름} 이거랑 같아야해!!!!!!!!!!!!!! 
-        url_m.urlLink = params[:urlLink]
-        url_m.urlTitle = params[:urlTitle]
-        url_m.memo = params[:memo]
-        #url_m.tags = params[:tagName]
-        url_m.save
-        #json 보내준게 잘 갔는지 확인해줘야지 
-        #ajax쓰는게 페이지 이동안하려고 하는거니까 redirect_to 쓰지마 
-        render :json => {"result" => "success", "url" => url_m}
-    end
+    
     
     def delete
         # 수정노노- 삭제기능 test완료 
@@ -482,6 +508,20 @@ class NambiController < ApplicationController
     end
     
     
+    #특수문자 
+    def etc
+        @userId = ""
+        unless session["userId"].nil? 
+            #수정노노
+            #로그아웃 옆에 email밖기
+            @userId = User.find(session["userId"]).userId
+            #당신의 url개수는 몇개입니까 할때 이름/url개수 밖기
+            @userName = User.find(session["userId"]).userName
+            @userUrl = Url.where(user_id: session["userId"]).count
+        end
+        @origin = Array.new
+       @findetc = Url.joins(:tags).where(user_id: session["userId"]).distinct
+    end
     #abc
     def eng_a
         @userId = ""
