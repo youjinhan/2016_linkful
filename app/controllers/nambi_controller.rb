@@ -254,11 +254,11 @@ class NambiController < ApplicationController
         
         url_m = Url.find(params[:post][:id])
         category = url_m.tags.find(params[:tagName][:id])
-
+        #post.categories.delete(category)
         if category
-            post.categories.delete(category)
+            url_m.tags.delete()
         end
-        url_m.tags.delete()
+        #url_m.tags.delete()
         new_tags = params[:tagName]     
         new_tag_list = new_tags.gsub(" ","") 
         new_tag_list = new_tag_list.split(" ") 
