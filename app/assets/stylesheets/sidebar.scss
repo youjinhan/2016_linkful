@@ -15,7 +15,7 @@
     .input_box__url {
         position: relative;
         display: block;
-        padding: 0px 0px 0px 10px;
+        padding: 0px 0px 5px 16px;
         color: #363636;
         border: none;
         font-weight: bold;
@@ -36,8 +36,10 @@
         margin:5px 0px 0px 10px;
     }
     .inputbox_actions {
+
         padding: 0px;
-        margin:0px;
+        margin:-8px 0px 0px 0px;
+
     }
 }
 
@@ -66,6 +68,7 @@
 
 
 #submit_button { 
+
     color:#19aac4;
     background-color: #479fff;
     box-shadow: 1px 1px 5px #616161;

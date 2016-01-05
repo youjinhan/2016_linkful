@@ -48,7 +48,7 @@
                     <div class="url__hashtag">
                             <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                             <% x.tags.each do |t| %>
-                                <!--<span class="url__hashtag__each" data-id="<%= t.id %>" data-type="url" >#<%= t.tagName %></span>-->
+                                <!--<span class="url__hashtag__each" data-id="<%#= t.id %>" data-type="url" ><%#= t.tagName %></span>-->
                                 <!-- GET방식으로 tagresult page의 tagSearch= " " 부분에 날려준다 -->
                                 <a class="url__hashtag__each" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                             <% end %>
@@ -132,9 +132,9 @@
               //1. 수정가능한 텍스트들을 contenteditable -> true
               //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
               // is-modifying은 css적용을 위한 것
-              url_content.find('.url__data-link').attr('contenteditable', true); // 9월 10일 안누리
-                    //url_content.find('.url__data-link').attr('style', 'color : black'); // 9월 10일 안누리
-              url_content.find('.url__data-link').addClass('is-modifying'); // 9월 10일 안누리
+              url_content.find('.url__data-link').attr('contenteditable', true);
+                    //url_content.find('.url__data-link').attr('style', 'color : black'); 
+              url_content.find('.url__data-link').addClass('is-modifying'); 
               url_content.find('.url__data-title').attr('contenteditable', true);
               url_content.find('.url__data-title').addClass('is-modifying');
               url_content.find('.url__data-memo').attr('contenteditable', true);
@@ -176,7 +176,8 @@
                 id: id,
                 urlLink: urlLink,   // 9월 10일 안누리
                 urlTitle: urlTitle,
-                memo: memo
+                memo: memo,
+                tagName: tagName
                 });         
 		 $.ajax({
 			 type: "POST",		//요청방식
@@ -186,7 +187,8 @@
 			     id: id,
 			     urlLink: urlLink,   // 9월 10일 안누리
 			     urlTitle: urlTitle,
-			     memo: memo
+			     memo: memo,
+                 tagName: tagName
 			     },
 			 dataType:"json", //응답데이타타입
 			 success: function(result) {	//정상응답일 경우

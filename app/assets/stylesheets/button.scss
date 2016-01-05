@@ -127,35 +127,48 @@
 }
 
 .login_sumit_button_css{
-    width: 325px;
-    height: 50px;
-    margin: 10px 0px 0px 0px;
-    /* border:3px solid white; */
-    color: white;
-    background-color: #22313f;
-    border: none;
-    box-shadow: 1px 1px 2px #B1B1B1;
-    font-size: 20pt;
-    
-    &.login_sumit_button_css:hover{
-    background-color: white;
-    color: #22313f;
-    /* border:3px solid #19aac4;; */
-    }
+width: 325px;
+height: 50px;
+margin: 10px 0px 0px 0px;
+/* border:3px solid white; */
+color: white;
+background-color: #22313f;
+border: none;
+box-shadow: 1px 1px 2px #B1B1B1;
+font-size: 20pt;
+
+&.login_sumit_button_css:hover{
+background-color: white;
+color: #22313f;
+/* border:3px solid #19aac4;; */
+}
 }
 
 
 /* 전체 해시태그보기 버튼 */
 .url__hashtag__tagbtt{
-    font-size: 12px;
+    /*font-size: 12px;
     color: white;
     background: #22313f;
     padding: 3px 4px 3px 4px;
     margin: 2px 2px 2px 0;
     text-decoration: none;
     /*white-space: nowrap;*/
-    display: inline-block;
+    /*display: inline-block;
     opacity: 0.99;
+    */
+    
+    font-size: 12px;
+    color: #dedede;
+    background: #3b5875;
+    border-right: 1px solid #34495e;
+    border-bottom: 1px solid #34495e;
+    padding: 3px 4px 3px 4px;
+    margin: 2px 2px 2px 0;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+   
     &.url__hashtag__tagbtt:hover{
     color: #22313f;
     background: white;

@@ -14,7 +14,7 @@
                     <img src="/img/<%=x.category%>.png" class="category_img" alt="카테고리"style="width: 7.2%">
                     <br>
                     <div class="url__editable url__data-title" style="display: inline-block">
-                        <%= x.urlTitle %></a>
+                        <a href="http://<%= x.urlLink %>" target="_blank"><%= x.urlTitle %></a>
                     </div>
                     
                     <!-- 주소복사 링크 -->
@@ -54,7 +54,7 @@
                                 <!-- @url 반복문의 index x에 대해 URL 필드 중 하나인 tags에 대한 이중반복문  -->
                                 <% x.tags.each do |t| %>
                                      <%#= t.tagName %> 
-                                     <a class="url__hashtag__each" style="color: white;" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"> <%=t.tagName%></a>
+                                     <a class="url__hashtag__each" style="color: white;" href="/nambi/tagresult?tagSearch=<%=t.tagName%>"><%=t.tagName%></a>
                                 <% end %>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
         <% if(x.category == 3) %>
         
         <div class="caption"  data-id="<%= x.id %>">
-            <img class="contentBox__image" src="<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
+            <img class="contentBox__image" src="https://<%= x.urlLink %>" class="category_img_thumbnail" alt="이미지섬네일">
             <div class="caption__overlayA">
         <% end %>
                 <div class="url__editable url__image-title"><%= x.urlTitle %></div>
@@ -315,7 +315,8 @@
                     id: id,
                     urlLink: urlLink,   // 9월 10일 안누리
                     urlTitle: urlTitle,
-                    memo: memo
+                    memo: memo,
+                    tagName: tagName
                     //tagName: tagName
                 });
             $.ajax({
@@ -325,8 +326,8 @@
                     id: id,
                     urlLink: urlLink,   // 9월 10일 안누리
                     urlTitle: urlTitle,
-                    memo: memo
-                    //tagName: tagName
+                    memo: memo,
+                    tagName: tagName
                 },
                 dataType:"json", //응답데이타타입
                     success: function(result) {	//정상응답일 경우

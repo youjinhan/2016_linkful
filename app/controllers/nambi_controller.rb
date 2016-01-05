@@ -99,7 +99,7 @@ class NambiController < ApplicationController
         @tagLatest =Url.joins(:tags).where(user_id: session["userId"]).limit(20).uniq
         # 중복체크하며 값 담아줄 새 배열 생성해
         @origin = Array.new
-        #2. 가장 최빈 태그 
+        #2. 가장 최신 태그 
         # .count먹여서 숫자 가장많은거 --> 최상위 하나만 뽑는거니까 limit(1)
         # 세션 유지된 상태에서 완료
         @tagMost= Url.joins(:tags).where(user_id: session["userId"]).group('tagName').order('count_id DESC').limit(2).count(:id)
@@ -217,22 +217,27 @@ class NambiController < ApplicationController
                     else    
                         url.urlLink = params[:urlLink]
                     end
-                else
-                    url.urlLink = params[:urlLink]
+                elsif Url.where(user_id:session["userId"], category:3)
+                    if params[:urlLink].include? "https://"
+                        url.urlLink = params[:urlLink].gsub /https\:\/\//,''
+                    elsif params[:urlLink].include? "http://"
+                        url.urlLink = params[:urlLink].gsub /http\:\/\//,''
+                    else    
+                        url.urlLink = params[:urlLink]
+                    end
                 end
             url.memo    = params[:memo]
             # 입력창에서 1,2,3이런 식으로 받아온거를
             new_tags = params[:tagName] #1,2,3
             # ','를 기준으로 잘라서 + 빈 공백은 제거하며 list형태로 넣어준다
             new_tag_list = new_tags.gsub(" ","") #1. 빈 공백 제거: replace==gsub
-            new_tag_list_real = new_tag_list.split(",") #2. [1,2,3] --> ","" 기준으로 string token
+            new_tag_list= new_tag_list.split(",") #2. [1,2,3] --> ","" 기준으로 string token
             # 반복문 돌리면서 Tag db에 넣고 + url 테이블이랑 이어준다 
-            new_tag_list_real.each do |t|
+            new_tag_list.each do |t|
                 created = Tag.create(:tagName => t)
                 # #Tag<id:1 , tagName :1>
                 url.tags << created
             end
-       
         
         print url.tags
         # [#Tag<id:1>, #Tag<id:2>] --> db이어졌음 ㅇㅋ 
@@ -252,22 +257,22 @@ class NambiController < ApplicationController
         url_m.urlTitle = params[:urlTitle]
         url_m.memo = params[:memo]
         
+        #all로 다 지울까.
+        tag_m= url_m.tags
         
-        category = url_m.tags.find(params[:tag][:id])
-        
-        if category
-            
-            url_m.tags.delete(category)
+        tag_m.each do |t|
+            t.destroy
         end
-       
-        new_tags = params[:tagName]     
-        new_tag_list = new_tags.gsub(" ","") 
-        new_tag_list = new_tag_list.split(" ") 
+        new_tags = params[:tagName]
+        #java의 trim역할이 ruby에서는 strip. 스트링의 양 옆 공백을 없애주는 메소드.
+        new_tag_list = new_tags.strip
+        #new_tag_list = new_tags.gsub(" ","")
+        new_tag_list = new_tags.split(" ")
         
         new_tag_list.each do |t|
             created = Tag.create(:tagName => t)
             url_m.tags << created
-        end    
+        end 
           
         url_m.save
         render :json => {"result" => "success", "url" => url_m}
@@ -308,10 +313,18 @@ class NambiController < ApplicationController
     
     
     def delete
-        # 수정노노- 삭제기능 test완료 
+        # 수정노노- ���제기능 test완료 
         #mainpage에서 특정 url의 id를 인자로 받아와서
         #그걸 삭제해준다 
         @url = Url.find(params[:id])
+
+        #이걸 여기따가 해야지 위치!!!
+        tag_m= @url.tags
+        
+        tag_m.each do |t|
+            t.destroy
+        end
+        
         @url.destroy
         #redirect_to '/nambi/mainpage'
         redirect_to :back
@@ -870,7 +883,7 @@ class NambiController < ApplicationController
         @userId = ""
         unless session["userId"].nil? 
             #수정노노
-            #로그아웃 옆에 email밖기
+            #로그아웃 옆에 email밖���
             @userId = User.find(session["userId"]).userId
             #당신의 url개수는 몇개입니까 할때 이름/url개수 밖기
             @userName = User.find(session["userId"]).userName
