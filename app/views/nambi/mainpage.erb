@@ -169,8 +169,8 @@
                     //수정하는 3개의 요소들을 각각 다 비활성화 시켜줘야해 
                     // 1. 수정가능한 텍스트들을 contenteditable -> false 상태로 바꿔준다
                     // 2. is-modifying 클래스를 제거
-                    url_content.find('.url__data-link').attr('contenteditable', false); // 9월 10일 안누리
-                    url_content.find('.url__data-link').removeClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__data-link').attr('contenteditable', false); 
+                    url_content.find('.url__data-link').removeClass('is-modifying'); 
                     url_content.find('.url__data-title').attr('contenteditable', false);
                     url_content.find('.url__data-title').removeClass('is-modifying');
                     url_content.find('.url__data-memo').attr('contenteditable', false);
@@ -200,9 +200,9 @@
                     //1. 수정가능한 텍스트들을 contenteditable -> true
                     //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
                     // is-modifying은 css적용을 위한 것
-                    url_content.find('.url__data-link').attr('contenteditable', true); // 9월 10일 안누리
-                    //url_content.find('.url__data-link').attr('style', 'color : black'); // 9월 10일 안누리
-                    url_content.find('.url__data-link').addClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__data-link').attr('contenteditable', true); 
+                    //url_content.find('.url__data-link').attr('style', 'color : black'); 
+                    url_content.find('.url__data-link').addClass('is-modifying'); 
                     url_content.find('.url__data-title').attr('contenteditable', true);
                     url_content.find('.url__data-title').addClass('is-modifying');
                     url_content.find('.url__data-memo').attr('contenteditable', true);
@@ -220,7 +220,7 @@
                     // is-modifying은 css적용을 위한 것, 그 효과를 없애준다.
                     url_content.removeClass('is-modifying');
                     //수정 후에는 주소복사 버튼을 나타내고,
-                    url_content.find('.mainpage_url_button').show(); // .data_url_button 이었음 소현
+                    url_content.find('.mainpage_url_button').show(); 
                     //urlLink 수정할 수 있는 창을 숨긴다.
                     url_content.find('.url__image-link').hide();
                     // 저장 버튼 숨기기
@@ -229,8 +229,8 @@
                     //수정하는 3개의 요소들을 각각 다 비활성화 시켜줘야해 
                     // 1. 수정가능한 텍스트들을 contenteditable -> false 상태로 바꿔준다
                     // 2. is-modifying 클래스를 제거
-                    url_content.find('.url__image-link').attr('contenteditable', false); // 9월 10일 안누리
-                    url_content.find('.url__image-link').removeClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__image-link').attr('contenteditable', false); 
+                    url_content.find('.url__image-link').removeClass('is-modifying'); 
                     url_content.find('.url__image-title').attr('contenteditable', false);
                     url_content.find('.url__image-title').removeClass('is-modifying');
                     url_content.find('.url__image-memo').attr('contenteditable', false);
@@ -260,9 +260,9 @@
                     //1. 수정가능한 텍스트들을 contenteditable -> true
                     //2. 수정중이라는 뜻으로 is-modifying 클래스를 추가
                     // is-modifying은 css적용을 위한 것
-                    url_content.find('.url__image-link').attr('contenteditable', true); // 9월 10일 안누리
-                    url_content.find('.url__image-link').attr('style', 'color : black'); // 9월 10일 안누리
-                    url_content.find('.url__image-link').addClass('is-modifying'); // 9월 10일 안누리
+                    url_content.find('.url__image-link').attr('contenteditable', true); 
+                    url_content.find('.url__image-link').attr('style', 'color : black'); 
+                    url_content.find('.url__image-link').addClass('is-modifying'); 
                     url_content.find('.url__image-title').attr('contenteditable', true);
                     url_content.find('.url__image-title').addClass('is-modifying');
                     url_content.find('.url__image-memo').attr('contenteditable', true);
@@ -294,13 +294,13 @@
             var urlTitle = urlLink = memo = tagName = "";
             if(type == 'url') {
                 url_content = $('.url[data-id="' + id + '"]');
-                urlLink = url_content.find('.url__data-link').text(); // 9월 10일 안누리
+                urlLink = url_content.find('.url__data-link').text(); 
                 urlTitle = url_content.find('.url__data-title').text();
                 memo = url_content.find('.url__data-memo').text();
                 tagName = url_content.find('.url__data-hashtag').text();
             } else if(type == 'img') {
                 url_content = $('.caption[data-id="' + id + '"]');
-                urlLink = url_content.find('.url__image-link').text(); // 9월 10일 안누리
+                urlLink = url_content.find('.url__image-link').text(); 
                 urlTitle = url_content.find('.url__image-title').text();
                 memo = url_content.find('.url__image-memo').text();
                 tagName = url_content.find('.url__image-hashtag').text();
@@ -313,7 +313,7 @@
             console.log({
                     //왼쪽꺼는 controller의 params[:이름] 이랑 일치해야함 무조건!!!
                     id: id,
-                    urlLink: urlLink,   // 9월 10일 안누리
+                    urlLink: urlLink,   
                     urlTitle: urlTitle,
                     memo: memo,
                     tagName: tagName
@@ -324,7 +324,7 @@
                 url: "/nambi/update",	//요청URL
                 data: {
                     id: id,
-                    urlLink: urlLink,   // 9월 10일 안누리
+                    urlLink: urlLink,   
                     urlTitle: urlTitle,
                     memo: memo,
                     tagName: tagName
