@@ -9,7 +9,24 @@
 <h2>주요 스크린샷</h2>
 
 <h3>로그인 화면</h3>
-<img src="https://cloud.githubusercontent.com/assets/13030119/12109010/f9281086-b3c0-11e5-97ed-f974bba87cb9.png">
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109010/f9281086-b3c0-11e5-97ed-f974bba87cb9.png"></br>
+<h3>유알엘등록</h3>
+Link에 관한 정보 입력 
+1)Link 카테고리 선택
+2)URL 입력
+3)해당 Link에 대한 제목 및 메모 입력
+4)태그 입력     
+5)가장 많이 등록한 태그 순, 최근에 등록한 태그 순으로 태그 정보 제공
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109011/f9288cb4-b3c0-11e5-8660-eedd9cb78ec8.png"></br>
+<h3>타임라인</h3>
+태그 클릭 시 해당 태그를 포함하는 Link들만 타임라인에 재출력
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109009/f924c7d2-b3c0-11e5-9dbc-d216e423ac27.png"></br>
+태그통합검색
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109008/f9247e4e-b3c0-11e5-9116-bb43fa06a665.png"></br>
+제목클릭시 해당 URL로 새로운창 연결
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109006/f92418d2-b3c0-11e5-9740-12f25e059f8e.png"></br>
+등록한 모든 태그를 사전식으로 분류해서 제공
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109007/f9244a28-b3c0-11e5-9329-45312d97790e.png"></br>
 
 <<<<<<< HEAD
 
