@@ -77,7 +77,7 @@
         function toggleUrlEditable(id) {
           var url_content = $('.url[data-id="' + id + '"]');
           
-          var data_link = url_content.find('.url__data-link');   //9월 10일 안누리 
+          var data_link = url_content.find('.url__data-link');   
           var data_title = url_content.find('.url__data-title');
           var data_memo = url_content.find('.url__data-memo');
           var data_hashtag = url_content.find('.url__data-hashtag');
@@ -99,8 +99,8 @@
               //수정하는 3개의 요소들을 각각 다 비활성화 시켜줘야해 
               // 1. 수정가능한 텍스트들을 contenteditable -> false 상태로 바꿔준다
               // 2. is-modifying 클래스를 제거
-                url_content.find('.url__data-link').attr('contenteditable', false); // 9월 10일 안누리
-                url_content.find('.url__data-link').removeClass('is-modifying'); // 9월 10일 안누리
+                url_content.find('.url__data-link').attr('contenteditable', false); 
+                url_content.find('.url__data-link').removeClass('is-modifying'); 
                 url_content.find('.url__data-title').attr('contenteditable', false);
                 url_content.find('.url__data-title').removeClass('is-modifying');
                 url_content.find('.url__data-memo').attr('contenteditable', false);
