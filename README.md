@@ -10,7 +10,7 @@
 
 <h3>로그인 화면</h3>
 <img src="https://cloud.githubusercontent.com/assets/13030119/12109010/f9281086-b3c0-11e5-97ed-f974bba87cb9.png"></br>
-<h3>유알엘등록</h3>
+<h3>URL등록</h3>
 Link에 관한 정보 입력 
 1)Link 카테고리 선택
 2)URL 입력
