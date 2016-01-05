@@ -8,6 +8,8 @@
 
 <h2>주요 스크린샷</h2>
 
+<h3>로그인 화면</h3>
+<img src="https://cloud.githubusercontent.com/assets/13030119/12109010/f9281086-b3c0-11e5-97ed-f974bba87cb9.png">
 
 <<<<<<< HEAD
 
