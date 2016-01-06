@@ -32,7 +32,7 @@ Link에 관한 정보 입력
 등록한 모든 태그를 사전식으로 분류해서 제공
 <img src="https://cloud.githubusercontent.com/assets/13030119/12109007/f9244a28-b3c0-11e5-9329-45312d97790e.png"></br>
 
-<<<<<<< HEAD
+
 
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
@@ -55,9 +55,7 @@ The Cloud9 IDE team
 
 ## Support & Documentation
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
 =======
 # 2016_linkful
 naver d2 
->>>>>>> 3eee6fa75707ccf0ce23fcb04efa906e3652cb09
+
