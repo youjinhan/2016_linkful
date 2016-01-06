@@ -8,7 +8,9 @@
 프로젝트 소개 동영상 링크입니다. <br>
 https://youtu.be/RcQ91TY8VEU    <br>
 사용한 오픈소스 이름과 홈페이지 목록은 NOTICE에 작성되어 있습니다.</br>
-
+프로젝트에 대한 간단한 소개를 한 slideshare link입니다. <br>
+http://www.slideshare.net/iso11/linkful         <br>
+<br> <br>
 현재 진행중인 프로젝트 코드는 'linkfulfirst' 브랜치에 저장해 놓은 상태입니다.
 
 <h2>주요 스크린샷</h2>
