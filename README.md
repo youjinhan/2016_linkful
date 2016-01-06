@@ -6,7 +6,7 @@
 
 현재 프로젝트는 진행중에 있으므로 미완성상태입니다. <br>
 프로젝트 소개 동영상 링크입니다. <br>
-https://youtu.be/12NQVWKKDO4     <br>
+https://youtu.be/RcQ91TY8VEU    <br>
 사용한 오픈소스 이름과 홈페이지 목록은 NOTICE에 작성되어 있습니다.</br>
 
 현재 진행중인 프로젝트 코드는 'linkfulfirst' 브랜치에 저장해 놓은 상태입니다.
